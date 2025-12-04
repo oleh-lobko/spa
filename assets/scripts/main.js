@@ -227,3 +227,63 @@ $(window).on('resize', function () {
 $(window).on('scroll', function () {
   // jQuery code goes here
 });
+function toggleMobileMenu() {
+  const $menuToggle = $('.mobile-menu-toggle');
+  const $menu = $('#main-menu');
+
+  const isActive = $menuToggle.hasClass('is-active');
+
+  if (isActive) {
+    $menuToggle.removeClass('is-active');
+    $menu.removeClass('expanded').slideUp(300);
+  } else {
+    $menuToggle.addClass('is-active');
+    $menu.addClass('expanded').slideDown(300);
+  }
+}
+
+function closeMobileMenu() {
+  $('.mobile-menu-toggle').removeClass('is-active');
+  $('#main-menu').removeClass('expanded').slideUp(300);
+}
+
+$(document).on('click', '.mobile-menu-toggle', function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  toggleMobileMenu();
+});
+
+$(document).on('click', '.header-menu a', function () {
+  if (window.innerWidth < 640) {
+    closeMobileMenu();
+  }
+});
+
+$(document).on('click', function (e) {
+  if (window.innerWidth < 640) {
+    if (
+      !$(e.target).closest('.header').length &&
+      $('.mobile-menu-toggle').hasClass('is-active')
+    ) {
+      closeMobileMenu();
+    }
+  }
+});
+
+$(window).on('resize', function () {
+  if (window.innerWidth >= 640) {
+    $('.mobile-menu-toggle').removeClass('is-active');
+    $('#main-menu').removeClass('expanded').show();
+  } else {
+    $('#main-menu').hide();
+  }
+});
+
+$(window).on('orientationchange', function () {
+  if (
+    $('.mobile-menu-toggle').hasClass('is-active') &&
+    window.innerWidth < 641
+  ) {
+    closeMobileMenu();
+  }
+});

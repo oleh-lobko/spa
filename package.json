@@ -93,6 +93,7 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "foundation-sites": "^6.8.1",
     "jarallax": "^2.0.4",
     "jquery": "^3.5.1",

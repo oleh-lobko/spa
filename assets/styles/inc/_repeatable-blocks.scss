@@ -3,19 +3,25 @@
 --------------------------------------- */
 
 .stay-tuned {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  @include list-unstyled;
 
-  &__item {
+  margin-right: -5px;
+  margin-left: -5px;
+  font-size: 0;
+}
+
+.stay-tuned__item {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.stay-tuned__link {
+  display: block;
+
+  .fab {
     display: block;
-
-    svg {
-      display: block;
-      width: auto;
-      height: 1.5rem;
-    }
+    font-size: 16px;
   }
 }
 
