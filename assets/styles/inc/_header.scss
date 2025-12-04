@@ -1,0 +1,197 @@
+.logo {
+  h1 {
+    font-size: 0;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  img {
+    max-height: 150px;
+  }
+}
+
+@include breakpoint(small down) {
+  /* TOP BAR Mobile STYLING */
+
+  .menu-grid-container {
+    padding-left: 0;
+    padding-right: 0;
+
+    .grid-margin-x {
+      margin-left: 0;
+      margin-right: 0;
+
+      .cell {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  //.title-bar {
+  //  line-height: 45px;
+  //
+  //  .menu-icon {
+  //    padding: 0;
+  //    border: none;
+  //    background-color: transparent;
+  //
+  //    //@include menu-icon($white, $white, 30px, 24px, 3px);
+  //  }
+  //}
+
+  .top-bar {
+    display: none;
+    background: $primary-color; /* menu list background color */
+  }
+
+  .header-menu {
+    background: transparent;
+
+    li {
+      > a {
+        background: $primary-color; /* menu item background color */
+        color: $white; /* menu item text color */
+        line-height: 45px;
+
+        &:focus {
+          &,
+          & + .submenu-toggle {
+            background: darken(
+              $primary-color,
+              5
+            ); /* menu item background color on hover */
+          }
+        }
+      }
+
+      &.current-menu-item,
+      &.current_page_ancestor,
+      &.current_page_parent {
+        > a,
+        .submenu-toggle {
+          background: lighten(
+            $primary-color,
+            5
+          ); /* current/parent menu item background color */
+        }
+      }
+
+      &[aria-expanded='true'] {
+        > a,
+        .submenu-toggle {
+          background: darken(
+            $primary-color,
+            3
+          ); /* menu item background color on open dropdown */
+        }
+      }
+    }
+
+    .submenu-toggle {
+      padding: 0;
+    }
+
+    .submenu {
+      a {
+        padding-left: #{get-side($accordionmenu-padding, 'left') * 1.65};
+      }
+
+      .submenu {
+        a {
+          padding-left: #{get-side($accordionmenu-padding, 'left') * 2.3};
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(medium) {
+  /* TOP BAR STYLING */
+
+  .header-menu.menu {
+    /* Align menu items to the right */
+    // justify-content: flex-end;
+
+    /* Align menu items to the center */
+    // justify-content: center;
+
+    li {
+      > a {
+        /* Regular menu item style */
+        line-height: 40px;
+        color: $primary-color;
+
+        &:hover {
+          /* menu item style on hover */
+          background: $primary-color;
+          color: $white;
+        }
+      }
+
+      &.current-menu-item,
+      &.current_page_ancestor,
+      &.current_page_parent {
+        > a {
+          /* Style of Current page and Ancestor page */
+          background: $primary-color;
+          color: $white;
+        }
+      }
+
+      &.has-dropdown {
+        > a {
+          /* Style of item with dropdown */
+        }
+      }
+
+      &.is-active > a {
+        /* Parent link style on dropdown hover */
+        background: $white;
+        color: $primary-color;
+      }
+    }
+
+    /* Dropdown item styling */
+
+    .submenu {
+      z-index: 11;
+      display: none;
+
+      &.js-dropdown-active {
+        display: block;
+      }
+
+      li {
+        > a {
+          /* Regular link in dropdown */
+          background: $white;
+          color: $primary-color;
+          line-height: 30px;
+
+          &:hover {
+            /* Dropdown link on hover */
+            background: lighten($primary-color, 10);
+            color: $white;
+          }
+        }
+
+        &.current-menu-item,
+        &.current_page_ancestor,
+        &.current_page_parent {
+          > a {
+            background: lighten($primary-color, 10);
+            color: $white;
+          }
+        }
+      }
+
+      .submenu {
+        /* Styles for 2nd level dropdown menu */
+      }
+    }
+  }
+}

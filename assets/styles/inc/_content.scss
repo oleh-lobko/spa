@@ -1,0 +1,21 @@
+.main-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* 404 page */
+.not-found {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .label {
+    background-color: $primary-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primary-color, 8);
+      color: $white;
+    }
+  }
+}

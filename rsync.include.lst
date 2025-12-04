@@ -1,0 +1,13 @@
++ acf-json/***
++ dist/***
++ inc/***
++ parts/***
++ templates/***
++ assets/
++ assets/blocks/***
++ editor-style.css
++ style.css
++ *.php
++ screenshot.png
+- .php-cs-fixer.php
+- *

@@ -1,0 +1,36 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__logo {
+  img {
+    max-height: 120px;
+  }
+}
+
+.footer__sp {
+  text-align: right;
+}
+
+.footer-menu {
+  @include list-unstyled;
+
+  text-align: center;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: block;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.footer__copy {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $light-gray;
+  font-size: 12px;
+  text-align: center;
+}

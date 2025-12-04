@@ -1,0 +1,51 @@
+/* Slick slider default styles */
+
+// Override slick variables (to use default slick styles just remove variables below)
+//$slick-font-family: '';
+//$slick-prev-character: '\f104';
+//$slick-next-character: '\f105';
+//$slick-dot-character: '\f111';
+$slick-arrow-color: $white;
+$slick-dot-color: $primary-color;
+$slick-dot-color-active: $primary-color;
+$slick-dot-size: 1rem;
+$slick-arrow-size: 2rem;
+
+@import '~slick-carousel/slick/slick.scss';
+@import '~slick-carousel/slick/slick-theme.scss';
+
+/* Arrows */
+.slick-arrow {
+  width: calc($slick-arrow-size / 2);
+  height: $slick-arrow-size;
+  z-index: 1;
+
+  &::before {
+    font-weight: 900;
+    font-size: $slick-arrow-size;
+  }
+}
+.slick-prev {
+  left: 2rem;
+}
+
+.slick-next {
+  right: 2rem;
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 3rem;
+}
+
+.slick-dots {
+  bottom: -2rem;
+
+  li {
+    button {
+      &::before {
+        font-weight: 900;
+      }
+    }
+  }
+}

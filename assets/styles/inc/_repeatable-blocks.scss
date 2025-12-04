@@ -1,0 +1,77 @@
+/* ---------------------------------------
+	Social networks
+--------------------------------------- */
+
+.stay-tuned {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  &__item {
+    display: block;
+
+    svg {
+      display: block;
+      width: auto;
+      height: 1.5rem;
+    }
+  }
+}
+
+/* ---------------------------------------
+	Side by side
+--------------------------------------- */
+
+.sbs-block {
+  position: relative;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  &--reverse {
+    .cell.sbs-block__img-wrap {
+      right: 50%;
+      left: 0;
+    }
+  }
+}
+
+.sbs-block__content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.sbs-block__content {
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(medium) {
+    min-height: 400px;
+  }
+}
+
+.sbs-block__content-inner {
+  width: 100%;
+}
+
+.cell.sbs-block__img-wrap {
+  @include breakpoint(medium) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+  }
+
+  @include breakpoint(small down) {
+    margin-bottom: 25px;
+  }
+}
+
+.sbs-block__img {
+  width: 100%;
+  height: 100%;
+}

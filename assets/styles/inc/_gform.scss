@@ -1,0 +1,775 @@
+$fields-gap: map_get($grid-column-gutter, 'medium');
+
+.fwp {
+  .gform_wrapper {
+    $ignoredFieldTypes: '[type="radio"]', '[type="checkbox"]', '[type="submit"]',
+      '[type="button"]', '[type="image"]', '[type="file"]';
+
+    ul {
+      list-style: none;
+    }
+
+    input,
+    textarea {
+      padding: 0.5em 1em;
+      @include not_in($ignoredFieldTypes) {
+        padding: 0.5em 1em;
+      }
+    }
+
+    textarea {
+      min-height: 2.5rem;
+    }
+
+    .gfield_contains_required .ginput_container_phone {
+      .validation_message {
+        @extend .show-for-sr;
+      }
+    }
+
+    .gform_confirmation_message {
+      margin-bottom: 15px;
+    }
+
+    .gform_ajax_spinner {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .gfield_description {
+      margin-top: 10px;
+    }
+
+    .hidden_label {
+      .gfield_label {
+        position: absolute !important;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 1px;
+        height: 1px;
+      }
+    }
+
+    .gform_description {
+      display: block;
+    }
+
+    .gform_fields {
+      margin: 0;
+
+      &::after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+
+    .gfield {
+      position: relative;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+
+    .gform_hidden {
+      display: none;
+    }
+
+    .ginput_container ul {
+      margin-left: 0;
+    }
+
+    // Errors
+    div.validation_error {
+      color: $alert-color;
+      border-color: $alert-color;
+      border-width: 1px 0;
+    }
+
+    .gfield.gfield_error {
+      &,
+      &.gfield_contains_required.gfield_creditcard_warning {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin: 20px 0;
+        margin-bottom: 20px !important;
+      }
+
+      &.gfield_contains_required {
+        //div.ginput_container,
+        label.gfield_label {
+          margin: 0;
+        }
+      }
+
+      input,
+      textarea {
+        border-color: $alert-color;
+        @include not_in($ignoredFieldTypes) {
+          border-color: $alert-color;
+        }
+      }
+
+      .gfield_label {
+        color: $alert-color;
+      }
+
+      .ginput_complex {
+        label {
+          color: $alert-color;
+        }
+      }
+    }
+
+    .gform_validation_errors {
+      border-color: currentColor;
+      color: $alert-color;
+      background-color: lighten($alert-color, 42%);
+
+      .gform_submission_error {
+        color: inherit;
+      }
+    }
+
+    div.gfield_validation_message,
+    div.validation_message {
+      color: $alert-color;
+      font: normal normal normal 0.75rem/1.2em $body-font-family;
+      padding: 0.5rem 0.75rem;
+      border-color: $alert-color;
+      background-color: lighten($alert-color, 42%);
+    }
+
+    .ginput_container_fileupload {
+      .validation_message:empty {
+        display: none;
+      }
+    }
+
+    .gfield_required {
+      color: $alert-color;
+    }
+
+    .gform_footer {
+      position: relative;
+      padding: 0;
+    }
+
+    .screen-reader-text,
+    label.hidden_sub_label {
+      @extend .show-for-sr;
+    }
+
+    .gf_invisible,
+    .gfield_visibility_hidden {
+      position: absolute;
+      left: -9999px;
+      visibility: hidden;
+    }
+  }
+
+  // Time field
+  .gfield_time_ampm,
+  .gfield_time_minute,
+  .gfield_time_hour {
+    //width: 4em;
+    flex: 0 0 auto;
+    text-align: center;
+
+    input,
+    select {
+      width: 80px;
+    }
+
+    select {
+      padding-left: 0.25rem;
+      padding-right: 0.75rem;
+    }
+  }
+
+  .gfield_time_minute {
+    margin-right: 0.5rem;
+  }
+
+  .gfield_time_hour {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90px;
+    margin-right: 15px;
+    align-items: center;
+
+    i {
+      width: 10px;
+      text-align: right;
+    }
+
+    .gfield_time_ampm {
+      margin-left: 0.5rem;
+    }
+  }
+
+  // Datepicker styles
+  input.datepicker_with_icon {
+    display: inline-block;
+    width: calc(100% - 24px);
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .gform_wrapper {
+    .top_label {
+      input.datepicker {
+        &.large,
+        &.medium,
+        &.small {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .ui-datepicker {
+    position: absolute;
+    z-index: 9999 !important;
+    width: 216px;
+    height: auto;
+    margin: 5px auto 0;
+    font-size: 11px;
+    box-shadow: 0 3px 15px 0 transparentize($black, 0.8);
+    border: none;
+
+    a {
+      text-decoration: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background: $white;
+      color: $black;
+
+      th {
+        padding: 3px;
+        border-bottom: 1px solid $medium-gray;
+        text-align: center;
+      }
+    }
+
+    tbody {
+      border: none;
+
+      tr {
+        border: none;
+      }
+
+      td {
+        width: 31px;
+        padding: 0;
+        border: none;
+
+        span,
+        a {
+          display: block;
+          //width: 30px;
+          height: 29px;
+          color: $dark-gray;
+          font-weight: 700;
+          line-height: 30px;
+          text-align: center;
+        }
+      }
+
+      th {
+        padding: 5px 0;
+        color: $dark-gray;
+        font-size: 6pt;
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+
+    select.ui-datepicker-month,
+    select.ui-datepicker-year {
+      height: 30px;
+      margin: 0 2.5%;
+      padding: 5px 20px 5px 5px;
+      font-size: 13px;
+      line-height: 20px;
+      width: auto;
+      border-color: transparent;
+      flex-grow: 1;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &::after {
+        content: '2';
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+    }
+  }
+
+  .ui-datepicker-header {
+    position: relative;
+    padding: 5px 0;
+    border: none;
+    background-color: $primary-color; /* set the header background color */
+    color: $white;
+    font-weight: $button-font-weight;
+
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    color: $white;
+    font-size: 0;
+    line-height: 1.4;
+    transform: translateY(-50%);
+    background: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 5px solid transparent;
+    }
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    &.ui-state-hover {
+      &::after {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .ui-datepicker-next {
+    right: 3px;
+
+    &::after {
+      border-left-color: $white;
+      border-right-width: 0;
+    }
+  }
+
+  .ui-datepicker-prev {
+    left: 3px;
+
+    &::after {
+      border-right-color: $white;
+      border-left-width: 0;
+    }
+  }
+
+  .ui-datepicker-title {
+    display: flex;
+    justify-content: center;
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  .ui-datepicker-calendar {
+    margin: 0 !important;
+
+    .ui-state-default {
+      background: $white;
+      text-shadow: unset;
+      box-shadow: unset;
+      width: 31px;
+      height: 31px;
+    }
+
+    .ui-state-hover {
+      background-color: $light-gray;
+      color: $primary-color;
+      transition: none;
+    }
+
+    .ui-state-active {
+      position: relative;
+      margin: 0;
+      border: 0;
+      background-color: $primary-color; /* set the active date background color */
+      color: $white;
+    }
+  }
+
+  .ui-datepicker-unselectable {
+    background-color: darken($white, 5%);
+    color: $dark-gray;
+
+    &.ui-state-disabled {
+      background-color: darken($white, 5%);
+      color: $dark-gray;
+    }
+  }
+}
+
+@include breakpoint(medium) {
+  .gf_left_half,
+  .gf_right_half {
+    float: left;
+    width: calc(50% - $fields-gap / 2);
+
+    + .gfield:not(.gf_left_half):not(.gf_right_half) {
+      clear: both;
+    }
+  }
+
+  .gf_left_third,
+  .gf_middle_third,
+  .gf_right_third {
+    float: left;
+    width: calc(33.3333% - $fields-gap * 2 / 3);
+
+    + .gfield:not(.gf_left_third):not(.gf_middle_third):not(.gf_right_third) {
+      clear: both;
+    }
+  }
+
+  .gf_left_half {
+    margin-right: calc($fields-gap / 2);
+  }
+
+  .gf_right_half {
+    margin-left: calc($fields-gap / 2);
+
+    + .gfield {
+      clear: both;
+    }
+  }
+
+  .gf_left_third {
+    margin-right: calc($fields-gap * 2 / 3);
+  }
+
+  .gf_right_third {
+    margin-left: calc($fields-gap * 2 / 3);
+
+    + .gfield {
+      clear: both;
+    }
+  }
+
+  .gf_middle_third {
+    margin-right: calc($fields-gap / 3);
+    margin-left: calc($fields-gap / 3);
+  }
+}
+
+//.ginput_complex {
+//  > span {
+//    display: block;
+//  }
+//
+//  @include breakpoint(medium) {
+//    margin-right: calc($fields-gap / 2 * -1);
+//    margin-left: calc($fields-gap / 2 * -1);
+//
+//    &::after {
+//      content: '';
+//      display: table;
+//      clear: both;
+//    }
+//
+//    > span {
+//      display: block;
+//      float: left;
+//      width: calc(50% - $fields-gap);
+//      margin-right: calc($fields-gap / 2);
+//      margin-bottom: 20px;
+//      margin-left: calc($fields-gap / 2);
+//
+//      &.ginput_full {
+//        width: calc(100% - $fields-gap);
+//
+//        > span {
+//          display: block;
+//          float: left;
+//          width: calc(50% - $fields-gap);
+//        }
+//      }
+//
+//      @include last-grid-row(2) {
+//        margin-bottom: 0;
+//      }
+//    }
+//  }
+//
+//  label {
+//    @extend .show-for-sr; // Comment this line to display complex field labels (Name, Address etc.)
+//  }
+//}
+
+/* ---------------------------------------
+  Authorize credit card field
+--------------------------------------- */
+
+.ginput_container_creditcard {
+  .ginput_cardinfo_left,
+  .ginput_cardinfo_right {
+    display: block;
+  }
+
+  @include breakpoint(medium) {
+    .ginput_cardinfo_left {
+      margin-right: calc($fields-gap / 2);
+    }
+
+    .ginput_cardinfo_right {
+      margin-left: calc($fields-gap / 2);
+    }
+
+    select.ginput_card_expiration {
+      display: inline-block;
+      width: 47% !important;
+    }
+  }
+
+  @include breakpoint(small down) {
+    select.ginput_card_expiration_month {
+      margin-bottom: 15px;
+    }
+
+    .ginput_cardinfo_left,
+    .ginput_cardinfo_right {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .ginput_card_expiration_container {
+    display: block;
+    width: 100%;
+  }
+
+  .ginput_cardinfo_right input.ginput_card_security_code {
+    position: relative;
+    display: inline-block;
+    max-width: 50% !important;
+  }
+}
+
+.gform_card_icon_container {
+  height: 32px;
+  margin: 8px 0 6px;
+}
+
+div.gform_card_icon {
+  float: left;
+  width: 36px;
+  height: 32px;
+  margin-right: 4px;
+  background-image: url(../../images/gf-creditcard-icons.png);
+  background-repeat: no-repeat;
+  text-indent: -9000px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 {
+  div.gform_card_icon {
+    &.gform_card_icon_visa {
+      background-position: 0 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_visa {
+      background-position: 0 -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_visa {
+      background-position: 0 -64px;
+    }
+
+    &.gform_card_icon_mastercard {
+      background-position: -36px 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_mastercard {
+      background-position: -36px -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_mastercard {
+      background-position: -36px -64px;
+    }
+
+    &.gform_card_icon_amex {
+      background-position: -72px 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_amex {
+      background-position: -72px -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_amex {
+      background-position: -72px -64px;
+    }
+
+    &.gform_card_icon_discover {
+      background-position: -108px 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_discover {
+      background-position: -108px -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_discover {
+      background-position: -108px -64px;
+    }
+
+    &.gform_card_icon_maestro {
+      background-position: -144px 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_maestro {
+      background-position: -144px -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_maestro {
+      background-position: -144px -64px;
+    }
+
+    &.gform_card_icon_jcb {
+      background-position: -180px 0;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_jcb {
+      background-position: -180px -32px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_jcb {
+      background-position: -180px -64px;
+    }
+  }
+}
+
+.gform_card_icon_container.gform_card_icon_style2 {
+  div.gform_card_icon {
+    &.gform_card_icon_visa {
+      background-position: 0 -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_visa {
+      background-position: 0 -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_visa {
+      background-position: 0 -256px;
+    }
+
+    &.gform_card_icon_mastercard {
+      background-position: -36px -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_mastercard {
+      background-position: -36px -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_mastercard {
+      background-position: -36px -256px;
+    }
+
+    &.gform_card_icon_amex {
+      background-position: -72px -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_amex {
+      background-position: -72px -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_amex {
+      background-position: -72px -256px;
+    }
+
+    &.gform_card_icon_discover {
+      background-position: -108px -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_discover {
+      background-position: -108px -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_discover {
+      background-position: -108px -256px;
+    }
+
+    &.gform_card_icon_maestro {
+      background-position: -144px -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_maestro {
+      background-position: -144px -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_maestro {
+      background-position: -144px -256px;
+    }
+
+    &.gform_card_icon_jcb {
+      background-position: -180px -192px;
+    }
+
+    &.gform_card_icon_selected.gform_card_icon_jcb {
+      background-position: -180px -224px;
+    }
+
+    &.gform_card_icon_inactive.gform_card_icon_jcb {
+      background-position: -180px -256px;
+    }
+  }
+}
+
+.ginput_complex .ginput_cardinfo_right {
+  min-width: 85px !important;
+}
+
+.ginput_complex select.ginput_card_expiration.ginput_card_expiration_month {
+  margin-right: 4px;
+}
+
+.ginput_complex .ginput_cardinfo_right span.ginput_card_security_code_icon {
+  position: relative;
+  top: -2px;
+  left: 6px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  width: 32px;
+  height: 23px;
+  background-image: url(../../images/gf-creditcard-icons.png);
+  background-repeat: no-repeat;
+  background-position: 0 -128px;
+}
+
+div.gfield_creditcard_warning_message {
+  color: $alert-color;
+  font-weight: 700;
+}
+
+.gform_validation_container,
+.gform_wrapper .gform_validation_container,
+body .gform_wrapper li.gform_validation_container,
+body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
+  position: absolute !important;
+  left: -9000px;
+  display: none !important;
+}

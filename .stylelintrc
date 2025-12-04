@@ -1,0 +1,41 @@
+{
+  "plugins": [
+    "stylelint-prettier"
+  ],
+  "extends": [
+    "stylelint-prettier/recommended"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "declaration-bang-space-before": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-empty-source": null,
+    "color-named": "never",
+    "no-duplicate-selectors": null,
+    "no-descending-specificity": null,
+    "selector-type-no-unknown": true,
+    "max-line-length": 120,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "include",
+          "content",
+          "return",
+          "function"
+        ]
+      }
+    ]
+  }
+}

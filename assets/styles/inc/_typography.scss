@@ -1,0 +1,205 @@
+/* ---------------------------------------
+	Typography
+--------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  a {
+    color: inherit;
+  }
+}
+
+h1,
+.h1 {
+  /* basic heading styles */
+}
+
+h2,
+.h2 {
+  /* basic heading styles */
+}
+
+h3,
+.h3 {
+  /* basic heading styles */
+}
+
+h4,
+.h4 {
+  /* basic heading styles */
+}
+
+h5,
+.h5 {
+  /* basic heading styles */
+}
+
+h6,
+.h6 {
+  /* basic heading styles */
+}
+
+p {
+  /* basic paragraph styles */
+  &:empty {
+    display: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  /* basic list styles */
+  font-size: inherit;
+
+  li {
+    /* basic list-item styles */
+  }
+}
+
+address {
+  font-style: normal;
+  margin-bottom: $global-margin;
+}
+
+a {
+  color: $primary-color;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    /* basic hover and focus effects */
+    color: darken($primary-color, 20);
+  }
+}
+
+/* ---------------------------------------
+	Tiny MCE formats
+--------------------------------------- */
+
+.text-large {
+  font-size: 125%;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+/* ---------------------------------------
+	Tables
+--------------------------------------- */
+table {
+  margin-bottom: 1rem;
+
+  th,
+  td {
+    border: $table-border;
+    padding: 0.75rem;
+  }
+}
+
+/* ---------------------------------------
+	Forms/Inputs
+--------------------------------------- */
+
+.no-outline {
+  button,
+  a,
+  [tabindex] {
+    outline: none;
+  }
+}
+
+/* Placeholder styling */
+
+input,
+textarea {
+  &::placeholder {
+    opacity: 1;
+  }
+}
+
+/* Input Styling */
+
+[type='color'],
+[type='date'],
+[type='datetime-local'],
+[type='datetime'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+textarea,
+select,
+.select-styled {
+  $height: ($input-font-size * unitless-calc($input-line-height)) +
+    (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) +
+    rem-calc(get-border-value($input-border, 'width') * 2);
+
+  /* STYLES GO THERE */
+  height: $height;
+  margin-bottom: 0;
+}
+
+textarea[rows] {
+  /* Styles for TextArea */
+  height: 150px;
+  max-width: 100%;
+}
+
+[type='number'] {
+  -moz-appearance: textfield;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+[type='checkbox'],
+[type='file'],
+[type='radio'] {
+  margin-bottom: 0;
+}
+
+button,
+.button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+  border-width: $button-hollow-border-width;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  //&:hover,
+  //&:focus {
+  //}
+}
+
+/* Button additional styles */
+
+.button {
+  &:hover,
+  &:focus {
+    /* basic hover and focus effects */
+  }
+}

@@ -1,0 +1,116 @@
+@import 'inc/settings';
+
+// Utils
+@import 'inc/fonts';
+@import 'inc/mixins';
+@import 'foundation-sites/scss/util/mixins';
+
+// Import everything from autoload folder
+@import 'autoload/**/*';
+
+// Plugins
+//@import '~@fancyapps/fancybox/dist/jquery.fancybox.min.css';
+//@import '~jarallax/src/jarallax.css';
+
+/* -----------------------------------------
+  Animation
+----------------------------------------- */
+
+@import 'inc/animation';
+
+/* -----------------------------------------
+   Slick
+----------------------------------------- */
+@import 'inc/slick';
+
+/* -----------------------------------------
+  WooCommerce
+----------------------------------------- */
+//@import 'inc/woo';
+
+/* -----------------------------------------
+  WordPress Core Classes
+----------------------------------------- */
+@import 'inc/wp-core';
+
+/* -----------------------------------------
+  Global styles
+----------------------------------------- */
+@import 'inc/global';
+
+/* -----------------------------------------
+  Typography / Forms / Inputs / Buttons
+----------------------------------------- */
+@import 'inc/typography';
+
+/* -----------------------------------------
+  Contact Form
+----------------------------------------- */
+/* basic Gravity Form styles and fixes, if you dont need/use this -
+comment or delete styles below */
+@import 'inc/gform';
+
+/* -----------------------------------------
+  Content Styles
+----------------------------------------- */
+@import 'inc/content';
+
+/* -----------------------------------------
+  Repeatable blocks
+----------------------------------------- */
+@import 'inc/repeatable-blocks';
+
+/* -----------------------------------------
+  Header
+----------------------------------------- */
+@import 'inc/header';
+
+/* -----------------------------------------
+  Sidebar
+----------------------------------------- */
+@import 'inc/sidebar';
+
+/* -----------------------------------------
+  Footer
+----------------------------------------- */
+@import 'inc/footer';
+
+/* -----------------------------------------
+  TMPL: Home page
+----------------------------------------- */
+@import 'templates/home';
+
+/* -----------------------------------------
+  Page: Blog
+----------------------------------------- */
+@import 'templates/blog';
+
+/* -----------------------------------------
+  TMPL: Default page
+----------------------------------------- */
+@import 'templates/default';
+
+/* -----------------------------------------
+  TMPL: Contact page
+----------------------------------------- */
+@import 'templates/contact';
+
+/* -----------------------------------------
+  Home slider
+----------------------------------------- */
+@import 'autoload/home-slider';
+
+/* -----------------------------------------
+  Divi custom blocks
+----------------------------------------- */
+//@import '../blocks/divi/**/styles.scss';
+
+/* -----------------------------------------
+    Elementor Custom Widgets
+----------------------------------------- */
+//@import '../blocks/elementor/**/styles.scss';
+
+/* -----------------------------------------
+   Gutenberg blocks
+----------------------------------------- */
+//@import '../blocks/gutenberg/**/styles.scss';

@@ -1,0 +1,5 @@
+{
+  "runner": "pressable-rsync",
+  "preBuildTask": "build",
+  "username": "%SFTP_USERNAME%"
+}
