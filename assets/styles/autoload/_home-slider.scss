@@ -32,8 +32,11 @@
   .slick-dots {
     /* Slick dots global styles */
     font-size: 0;
-
+    bottom: 0.5rem;
     li {
+      button:before {
+        color: $color-white !important;
+      }
       &:only-child {
         display: none;
       }

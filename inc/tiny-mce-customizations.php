@@ -50,6 +50,17 @@ add_filter('tiny_mce_before_init', function ($init_array) {
                 'selector' => 'h1,h2,h3,h4,h5,h6,p,li',
                 'wrapper' => false,
             ],
+            [
+                'title' => 'Title Pink',
+                'classes' => 'title-pink',
+                'selector' => 'h1',
+                'wrapper' => false,
+            ], [
+                'title' => 'Title Blue',
+                'classes' => 'title-blue',
+                'selector' => 'h5',
+                'wrapper' => false,
+            ],
         ],
     ];
 

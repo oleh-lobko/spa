@@ -1,0 +1,353 @@
+/* -----------------------------------------
+   SPA Footer Styles
+----------------------------------------- */
+
+.pre-footer-stripe {
+  background-image: url('../../images/bar_big.webp');
+  height: 50px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+}
+@media (max-width: 1024px) {
+  .pre-footer-stripe {
+    margin-top: 2rem;
+  }
+}
+.spa-footer {
+  margin-top: auto;
+  background-color: #ffffff;
+  padding: 3rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+
+  @include breakpoint(medium down) {
+    padding: 2rem 0 1.5rem;
+    gap: 2rem;
+  }
+
+  @include breakpoint(small down) {
+    padding: 1.5rem 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .footer-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 18rem;
+
+    @include breakpoint(large down) {
+      max-width: 1000px;
+      gap: 10rem;
+      padding: 0 1.5rem;
+    }
+
+    @include breakpoint(medium down) {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    @include breakpoint(small down) {
+      gap: 1.5rem;
+      padding: 0 0.75rem;
+    }
+  }
+
+  .footer-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+
+    @include breakpoint(medium down) {
+      align-items: center;
+      width: 100%;
+      gap: 1.25rem;
+    }
+
+    @include breakpoint(small down) {
+      gap: 1rem;
+    }
+  }
+
+  .footer-right-column {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include breakpoint(medium down) {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .footer-get-in-touch {
+    .get-in-touch-link,
+    .get-in-touch-text {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e91e63;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+
+      @include breakpoint(medium down) {
+        font-size: 1.25rem;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 1.125rem;
+      }
+    }
+
+    .get-in-touch-link {
+      &:hover {
+        color: #c2185b;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-connect-with-us {
+    text-align: left;
+
+    @include breakpoint(medium down) {
+      text-align: center;
+    }
+
+    .connect-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 1rem;
+
+      @include breakpoint(medium down) {
+        font-size: 1.25rem;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+      margin-top: 0.5rem;
+
+      @include breakpoint(medium down) {
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      @include breakpoint(small down) {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+
+        @include breakpoint(medium down) {
+          width: 36px;
+          height: 36px;
+        }
+
+        @include breakpoint(small down) {
+          width: 32px;
+          height: 32px;
+        }
+
+        &.social-facebook {
+          background-color: #f75097;
+          &:hover {
+            background-color: #c2185b;
+            transform: scale(1.1) translateY(-2px);
+          }
+        }
+
+        &.social-twitter {
+          background-color: #f75097;
+
+          &:hover {
+            background-color: #c2185b;
+            transform: scale(1.1) translateY(-2px);
+          }
+        }
+
+        &.social-linkedin {
+          background-color: #f75097;
+
+          &:hover {
+            background-color: #c2185b;
+            transform: scale(1.1) translateY(-2px);
+          }
+        }
+
+        // Default for other social networks
+        &:not(.social-facebook):not(.social-twitter):not(.social-linkedin) {
+          background-color: #f75097;
+
+          &:hover {
+            background-color: #c2185b;
+            transform: scale(1.1) translateY(-2px);
+          }
+        }
+
+        i {
+          font-size: 14px;
+          color: #ffffff;
+
+          @include breakpoint(medium down) {
+            font-size: 16px;
+          }
+
+          @include breakpoint(small down) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-main-partners {
+    text-align: right;
+
+    @include breakpoint(medium down) {
+      text-align: center;
+    }
+
+    .partners-title {
+      text-align: left;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 1rem;
+
+      @include breakpoint(medium down) {
+        font-size: 1.25rem;
+        text-align: center;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+      margin-top: 0;
+
+      @include breakpoint(medium down) {
+        justify-content: center;
+        gap: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      @include breakpoint(small down) {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .partner-logo {
+        flex: 0 0 auto;
+
+        a,
+        img {
+          display: block;
+          transition: all 0.3s ease-in-out;
+        }
+
+        img {
+          max-height: 70px;
+          max-width: 135px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          filter: grayscale(0%);
+
+          @include breakpoint(medium down) {
+            max-height: 45px;
+            max-width: 130px;
+          }
+
+          @include breakpoint(small down) {
+            max-height: 40px;
+            max-width: 100px;
+          }
+        }
+
+        a:hover img {
+          filter: brightness(1.1);
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+// Copyright Section
+.footer__copy {
+  padding: 1.5rem 0;
+  background-color: #e9ecef;
+  font-size: 0.875rem;
+  text-align: center;
+  color: #6c757d;
+  border-top: 1px solid #dee2e6;
+  margin-top: 0;
+  width: 100%;
+
+  @include breakpoint(small down) {
+    padding: 1.25rem 0;
+    font-size: 0.8rem;
+  }
+
+  .grid-container {
+    max-width: 1200px;
+
+    @include breakpoint(small down) {
+      padding: 0 1rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  a {
+    color: #1e88e5;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #1565c0;
+      text-decoration: underline;
+    }
+  }
+}

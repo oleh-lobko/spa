@@ -30,7 +30,7 @@ get_header(); ?>
                 $sidebar_cta = get_field('sidebar_cta');
                 if ($sidebar_cta) { ?>
                     <section class='cta-block'>
-                        <div class="cell large-4">
+                        <div class="cell large-4 medium-8">
                             <div class="sidebar-cta">
                                 <?php if ($sidebar_cta['title']) { ?>
                                     <h3 class="cta-title"><?php echo esc_html($sidebar_cta['title']); ?></h3>

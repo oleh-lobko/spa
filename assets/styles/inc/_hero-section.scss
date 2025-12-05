@@ -5,6 +5,31 @@ $dark-blue: #1e3c72;
 $text-gray: #012d38;
 $white: #ffffff;
 
+.home-slide__caption {
+  .cell {
+    .entered {
+      max-height: 15rem;
+      max-width: 25rem;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .home-slider {
+    .slick-dots {
+      display: none !important;
+    }
+  }
+  .home-slide__caption {
+    .cell {
+      .entered {
+        max-height: 8rem;
+        max-width: 12rem;
+        left: 50%;
+        transform: translateX(-5%);
+      }
+    }
+  }
+}
 // Hero Section Styles
 .spa-layout .hero-section {
   padding: 60px 0;
@@ -12,14 +37,14 @@ $white: #ffffff;
   background: transparent;
 
   @include breakpoint(medium down) {
-    padding: 40px 0;
+    padding: 10px 0;
   }
 
   @include breakpoint(small down) {
-    padding: 30px 0;
+    padding: 10px 0;
   }
 
-  h1 {
+  .title-pink {
     font-size: 62px;
     font-weight: 800;
     color: $primary-pink;
@@ -70,7 +95,7 @@ $white: #ffffff;
   }
 
   //"Fighting fit and raring to go"
-  h5 {
+  .title-blue {
     font-size: 28px;
     font-weight: 400;
     color: $primary-blue;
@@ -102,7 +127,6 @@ $white: #ffffff;
 
     @include breakpoint(medium down) {
       font-size: 15px;
-      margin-bottom: 18px;
     }
 
     @include breakpoint(small down) {
@@ -130,7 +154,7 @@ $white: #ffffff;
     iframe,
     video {
       width: 100%;
-      height: auto;
+      height: 100%;
       min-height: 350px;
       aspect-ratio: 16/9;
       border-radius: 12px;
@@ -300,11 +324,12 @@ $white: #ffffff;
 .sidebar-cta {
   background-color: #065481;
   color: $white;
-  padding: 30px 25px;
+  padding: 35px 30px;
   position: relative;
   margin-bottom: 25%;
   text-align: left;
-  max-width: 320px;
+  max-width: 280px;
+  max-height: 275px;
   width: 100%;
   font-family: 'Open Sans', sans-serif;
 
@@ -334,58 +359,60 @@ $white: #ffffff;
   }
 
   .cta-title {
-    font-size: 28px;
-    font-weight: 300; // Light Italic
+    font-size: 32px;
+    line-height: 20px;
+    font-weight: 300;
     font-style: italic;
-    margin-bottom: 15px;
     color: #17c8ff;
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-family: 'Open Sans', sans-serif;
-    line-height: 1.2;
     text-align: center;
   }
 
   .cta-description {
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    color: #ffffff;
+    font-size: 14px;
+    line-height: 25px;
+    margin-top: 35px;
+    color: $color-white;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400; // Regular
-    text-align: center;
+    font-weight: 400;
+    text-align: left;
   }
 
   .cta-button {
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
   }
 
   .btn-cta {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
-    color: #065481 !important;
-    padding: 10px 20px !important;
-    border: 2px solid #ffffff !important;
-    border-radius: 6px !important;
+    color: $color-white !important;
     text-decoration: none !important;
     font-weight: 600 !important; // Semibold
-    font-size: 11px !important;
+    font-size: 12px !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     transition: all 0.3s ease !important;
-    display: inline-block !important;
-    font-family: 'Open Sans', sans-serif !important;
+    display: flex !important;
+    align-items: center;
+    margin-top: 25px;
 
+    gap: 10px;
+    font-family: 'Open Sans', sans-serif !important;
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 6px;
+      border-color: transparent transparent transparent #ffffff;
+      transform: rotate(0deg);
+      display: block;
+    }
     &:hover,
     &:focus,
     &:active {
-      background: rgba(255, 255, 255, 0.95) !important;
-      background-color: rgba(255, 255, 255, 0.95) !important;
-      border-color: #ffffff !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
-      color: #065481 !important;
       text-decoration: none !important;
     }
   }
@@ -404,15 +431,22 @@ $white: #ffffff;
     justify-content: center;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 22rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
+  .btn-cta {
+    text-align: left;
+  }
+  .cta-block {
+    min-width: 100%;
+  }
   .sidebar-cta {
     margin: 30px auto 0 auto;
     padding: 25px 20px;
-    max-width: 100%;
     display: block;
+    max-height: 275px;
 
     .cta-title {
       font-size: 22px;
@@ -421,7 +455,7 @@ $white: #ffffff;
 
     .cta-description {
       font-size: 12px;
-      text-align: center;
+      text-align: left;
     }
 
     .cta-button {
@@ -436,10 +470,10 @@ $white: #ffffff;
 }
 
 // Responsive Design
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .sidebar-cta {
-    margin: 40px auto 0 auto;
-    padding: 30px 20px;
+    margin: 5px 0 0 0;
+    padding: 10px 20px;
     max-width: 100%;
     display: block;
 
@@ -450,11 +484,11 @@ $white: #ffffff;
 
     .cta-description {
       font-size: 13px;
-      text-align: center;
+      text-align: left;
     }
 
-    .cta-button {
-      text-align: center;
+    .btn-cta {
+      text-align: left;
     }
 
     &::before,
@@ -465,10 +499,8 @@ $white: #ffffff;
 }
 
 // Responsive Design
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .hero-section {
-    padding: 40px 0;
-
     h1 {
       font-size: 40px;
     }
@@ -484,7 +516,9 @@ $white: #ffffff;
     p {
       font-size: 14px;
     }
-
+    .btn-cta {
+      text-align: center;
+    }
     .video-play-button {
       width: 60px;
       height: 60px;
@@ -514,7 +548,7 @@ $white: #ffffff;
   }
 
   .sidebar-cta {
-    margin: 40px auto 0 auto;
+    margin: 5px auto 0 auto;
     padding: 30px 20px;
     max-width: 100%;
     display: block;
@@ -526,13 +560,12 @@ $white: #ffffff;
 
     .cta-description {
       font-size: 13px;
-      text-align: center;
+      text-align: left;
     }
 
-    .cta-button {
-      text-align: center;
+    .btn-cta {
+      text-align: left;
     }
-
     &::before,
     &::after {
       display: none;

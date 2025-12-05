@@ -20,8 +20,8 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    text-decoration: none;
+    //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    //text-decoration: none;
   }
 
   &:active {
@@ -44,8 +44,8 @@
   color: #ffffff;
 
   &:hover {
-    background-color: #0d47a1;
-    color: #ffffff;
+    //background-color: #0d47a1;
+    //color: #ffffff;
   }
 }
 
@@ -71,9 +71,9 @@
 }
 
 .btn-cta {
-  background-color: #ffffff;
+  //background-color: #ffffff;
   color: #1e88e5;
-  padding: 0.75rem 1.5rem;
+  //padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
@@ -81,13 +81,12 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease-in-out;
-  display: inline-block;
+  //display: inline-block;
 
   &:hover {
-    background-color: #f5f5f5;
+    //background-color: #f5f5f5;
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    color: #1e88e5;
+    //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     text-decoration: none;
   }
 }

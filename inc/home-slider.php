@@ -63,7 +63,7 @@ add_action('add_meta_boxes', function () {
                         style="width: 100%;"
                     />
                 </div>
-                <div class="field-wrap" style="width: 30%">
+                <div class="field-wrap" style=" width: 30%">
                     <p class="label-wrapper">
                         <label for="video_aspect_ratio" style="display: block;">
                             <b><?php _e('Video aspect ratio', 'fwp'); ?></b>
@@ -204,7 +204,7 @@ add_shortcode('slider', function () {
                 $homeSlider.slick({
                     cssEase: 'ease',
                     fade: true,  // Cause trouble if used slidesToShow: more than one
-                    // arrows: false,
+                    arrows: false,
                     dots: true,
                     infinite: true,
                     speed: 500,
@@ -263,8 +263,17 @@ add_shortcode('slider', function () {
                         <div class="grid-container home-slide__caption">
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
-                                    <h3><?php the_title(); ?></h3>
-                                    <?php the_content(); ?>
+                                    <?php
+                                    $logo_array = get_field('logo_slider', 'option');
+                                    if( !empty($logo_array) ) :
+                                        $url = $logo_array['url'];
+                                        $alt = $logo_array['alt'];
+                                        ?>
+                                        <img class="logo"
+                                            src="<?php echo esc_url($url); ?>"
+                                            alt="<?php echo esc_attr($alt); ?>"
+                                        />
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
