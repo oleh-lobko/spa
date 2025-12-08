@@ -28,14 +28,15 @@ if ($footer_sections) {
 }
 ?>
 
-<div class="pre-footer-stripe">
-</div>
+
 
 <!-- BEGIN of footer -->
 <footer class="footer spa-footer">
-
+    <div class="pre-footer-stripe">
+    </div>
     <!-- Main Footer Content: Left Column (Get in Touch + Connect) and Right Column (Partners) -->
     <div class="footer-main-content">
+
         <!-- Left Column: Get in Touch + Connect with Us -->
         <div class="footer-left-column">
             <!-- Get in Touch -->

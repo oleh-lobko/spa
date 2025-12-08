@@ -1,0 +1,709 @@
+/* -----------------------------------------
+   SPA Events Section - Updated Styling
+----------------------------------------- */
+$stripe-text: rgb(137, 214, 251);
+$stripe-bg-color: #17c8ff;
+$background-color: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+$btn-black-color: #212121;
+.spa-layout .spa-events-section {
+  background: $background-color;
+  position: relative;
+  overflow: visible;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
+  min-height: 300px;
+  padding: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .spa-events-overlay {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* White background container for all events */
+.spa-layout .spa-events-white-container {
+  background: $color-white;
+  position: relative;
+  z-index: 10;
+  margin: -150px auto 0;
+  max-width: 80rem;
+  width: 100%;
+
+  @include breakpoint(xlarge) {
+    padding: 2rem 3rem 0 3rem;
+    margin: -8rem auto 0;
+  }
+
+  @include breakpoint(medium down) {
+    max-width: calc(100% - 3rem);
+    margin: -100px auto 0;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+  }
+
+  @include breakpoint(small down) {
+    max-width: calc(100% - 2rem);
+    margin: -130px auto 0;
+    padding: 1.5rem 1rem 0 1rem;
+  }
+
+  @include breakpoint(320px down) {
+    max-width: calc(100% - 1rem);
+    margin: -40px auto 0;
+    padding: 1rem 0.75rem 0 0.75rem;
+  }
+}
+
+/* Unified Events Section Container */
+.unified-events-section {
+  width: 100%;
+
+  .featured-event {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid $stripe-bg-color;
+  }
+
+  .regular-events {
+    margin-top: 0;
+  }
+}
+
+/* Static Stripe for Featured Event */
+.featured-event-stripe {
+  background-color: $stripe-bg-color;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -0.5rem 0 1rem 0;
+  border-radius: none;
+  position: relative;
+  z-index: 3;
+
+  @include breakpoint(small down) {
+    height: 35px;
+    margin: -0.25rem 0 0.75rem 0;
+  }
+
+  .stripe-text {
+    color: $stripe-text;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 800;
+    font-style: italic;
+
+    @include breakpoint(small down) {
+      font-size: 0.625rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    @include breakpoint(large down) {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  @include breakpoint(large) {
+    margin: -0.5rem 0 1rem 0;
+  }
+
+  @include breakpoint(xlarge) {
+    margin: -0.5rem 0 1rem 0;
+  }
+
+  @include breakpoint(medium down) {
+    margin: -0.5rem 0 1rem 0;
+  }
+
+  @include breakpoint(small down) {
+    margin: -0.5rem 0 1rem 0;
+  }
+}
+
+.spa-events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+
+  @include breakpoint(small down) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .spa-events-title {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    color: $color-white;
+    margin: 0;
+
+    @include breakpoint(small down) {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+  }
+
+  .spa-events-see-all {
+    background-color: $color-white;
+    color: $btn-black-color;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+
+    @include breakpoint(medium down) {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8rem;
+    }
+
+    @include breakpoint(small down) {
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      min-width: 80px;
+    }
+
+    &:hover {
+      background-color: $color-white;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      color: $btn-black-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.featured-event {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+
+  @include breakpoint(small down) {
+    flex-direction: column;
+    gap: 1rem;
+    min-height: auto;
+  }
+  @include breakpoint(medium down) {
+    padding: 1rem 1rem;
+  }
+
+  .event-date-block {
+    background-color: #065481;
+    color: $color-white;
+    padding: 1rem;
+    border-radius: none;
+    text-align: center;
+    min-width: 80px;
+    flex-shrink: 0;
+    margin-top: 0;
+    align-self: flex-start;
+    position: relative;
+
+    @include breakpoint(medium down) {
+      align-self: center;
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoint(small down) {
+      padding: 0.75rem;
+      min-width: 70px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -20px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #065481;
+
+      @include breakpoint(medium down) {
+        display: none;
+      }
+    }
+  }
+
+  .event-month {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700; // Bold
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+
+    @include breakpoint(small down) {
+      font-size: 11px;
+    }
+  }
+
+  .event-day {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400; // Regular
+    line-height: 1;
+
+    @include breakpoint(small down) {
+      font-size: 20px;
+    }
+  }
+
+  .event-content {
+    flex: 1;
+    min-width: 0;
+
+    .event-location {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400; // Regular
+      color: #012d38;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+
+      @include breakpoint(small down) {
+        font-size: 14px;
+        text-align: center;
+      }
+      @include breakpoint(medium down) {
+        text-align: center !important;
+      }
+    }
+
+    .event-title {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 800; // Extrabold
+      color: #065481;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+
+      @include breakpoint(medium down) {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 20px;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    .event-description {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400; // Regular
+      line-height: 1.75;
+      color: #012d38;
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+
+      @include breakpoint(medium down) {
+        text-align: center;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    .event-read-more {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600; // Semibold
+      color: #f75097;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+
+      @include breakpoint(medium down) {
+        display: block;
+        text-align: center;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 11px;
+      }
+
+      &:hover {
+        color: #17c8ff;
+        cursor: pointer;
+        transform: translateY(-2px);
+        text-shadow: 0 1px 3px rgba(23, 200, 255, 0.3);
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .event-logo {
+    flex: 1;
+    min-width: 0;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(medium down) {
+      height: 150px;
+      width: 100%;
+    }
+
+    @include breakpoint(small down) {
+      height: 120px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+.regular-events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  @include breakpoint(xlarge) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  @include breakpoint(medium down) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  @include breakpoint(small down) {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .regular-event {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+
+    @include breakpoint(small down) {
+      flex-direction: column;
+      gap: 1rem;
+      min-height: auto;
+      margin-bottom: 1rem;
+    }
+    @include breakpoint(medium down) {
+      padding: 1rem 1rem;
+    }
+
+    .event-date-block {
+      background-color: #065481;
+      color: $color-white;
+      padding: 1rem;
+      border-radius: none;
+      text-align: center;
+      min-width: 80px;
+      flex-shrink: 0;
+      margin-top: 0;
+      align-self: flex-start;
+      position: relative;
+
+      @include breakpoint(medium down) {
+        align-self: center;
+      }
+
+      @include breakpoint(small down) {
+        padding: 0.75rem;
+        min-width: 70px;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -20px;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #065481;
+
+        @include breakpoint(medium down) {
+          display: none;
+        }
+      }
+
+      .event-month {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.25rem;
+
+        @include breakpoint(small down) {
+          font-size: 11px;
+        }
+      }
+
+      .event-day {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
+
+        @include breakpoint(small down) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .event-content {
+      flex: 1;
+      min-width: 0;
+
+      .event-location {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400; // Regular
+        color: #012d38;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+
+        @include breakpoint(small down) {
+          font-size: 14px;
+        }
+      }
+
+      .event-title {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 28px;
+        font-weight: 800; // Extrabold
+        color: #065481;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        @include breakpoint(medium down) {
+          font-size: 24px;
+        }
+
+        @include breakpoint(small down) {
+          font-size: 20px;
+          margin-bottom: 0.75rem;
+        }
+      }
+
+      .event-subtitle {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600; // Regular
+        color: #065481;
+        margin-bottom: 0.5rem;
+
+        @include breakpoint(small down) {
+          font-size: 16px;
+        }
+      }
+
+      .event-description {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 400; // Regular
+        line-height: 1.75;
+        color: #012d38;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+
+        @include breakpoint(small down) {
+          font-size: 13px;
+          line-height: 1.6;
+          margin-bottom: 0.75rem;
+        }
+      }
+
+      .event-read-more {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 600; // Semibold
+        color: #f75097;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.15s ease-in-out;
+        display: inline-block;
+
+        @include breakpoint(small down) {
+          font-size: 11px;
+        }
+
+        &:hover {
+          color: #17c8ff;
+          cursor: pointer;
+          transform: translateY(-2px);
+          text-shadow: 0 1px 3px rgba(23, 200, 255, 0.3);
+
+          &::before {
+            left: 0;
+          }
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.events-pagination {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 0.5rem 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #2e5c73;
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+
+    a,
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: #2e5c73;
+      background: none;
+      border: none;
+      padding: 0 6px;
+      margin: 0 2px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #17c8ff;
+      }
+    }
+
+    .current {
+      font-weight: 700;
+      color: #17c8ff;
+    }
+
+    .prev,
+    .next {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0 10px;
+      color: #2e5c73;
+
+      &:hover {
+        color: #17c8ff;
+      }
+    }
+
+    .dots {
+      color: #2e5c73;
+      cursor: default;
+      user-select: none;
+    }
+
+    @include breakpoint(small down) {
+      gap: 0.3rem;
+
+      a,
+      span {
+        min-width: 28px;
+        height: 28px;
+        font-size: 12px;
+      }
+
+      .prev,
+      .next {
+        font-size: 10px;
+        min-width: 40px;
+        padding: 0 6px;
+      }
+    }
+  }
+}
+
+.no-events {
+  text-align: center;
+  padding: 3rem;
+  color: #9e9e9e;
+
+  p {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+}
