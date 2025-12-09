@@ -269,7 +269,7 @@ add_shortcode('slider', function () {
                                         $url = $logo_array['url'];
                                         $alt = $logo_array['alt'];
                                         ?>
-                                        <img class="logo"
+                                        <img class="logo-hero"
                                             src="<?php echo esc_url($url); ?>"
                                             alt="<?php echo esc_attr($alt); ?>"
                                         />

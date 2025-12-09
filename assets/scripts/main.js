@@ -7,27 +7,8 @@ import './plugins/modernizr.min';
 import 'slick-carousel';
 import 'jquery-match-height';
 import objectFitImages from 'object-fit-images';
-// import '@fancyapps/fancybox/dist/jquery.fancybox.min';
-// import { jarallax, jarallaxElement } from 'jarallax';
-// import ScrollOut from 'scroll-out';
 
-/**
- * Import scripts from Custom Divi blocks
- */
-// eslint-disable-next-line import/no-unresolved
-// import '../blocks/divi/**/index.js';
-
-/**
- * Import scripts from Custom Elementor widgets
- */
-// eslint-disable-next-line import/no-unresolved
-// import '../blocks/elementor/**/index.js';
-
-/**
- * Import scripts from Custom ACF Gutenberg blocks
- */
-// eslint-disable-next-line import/no-unresolved
-// import '../blocks/gutenberg/**/index.js';
+/* global google */
 
 /**
  * Init foundation
@@ -75,55 +56,6 @@ $(document).on('ready', function () {
   if ($('.of-cover').length) {
     objectFitImages('.of-cover');
   }
-
-  /**
-   * Add fancybox to images
-   */
-  // $('.gallery-item')
-  //   .find('a[href$="jpg"], a[href$="png"], a[href$="gif"]')
-  //   .attr('rel', 'gallery')
-  //   .attr('data-fancybox', 'gallery');
-  // $(
-  //   '.fancybox, a[rel*="album"], a[href$="jpg"], a[href$="png"], a[href$="gif"]'
-  // ).fancybox({
-  //   minHeight: 0,
-  //   helpers: {
-  //     overlay: {
-  //       locked: false,
-  //     },
-  //   },
-  // });
-
-  /**
-   * Init parallax
-   */
-  // jarallaxElement();
-  // jarallax(document.querySelectorAll('.jarallax'), {
-  //   speed: 0.5,
-  // });
-
-  /**
-   * Detect element appearance in viewport
-   */
-  // ScrollOut({
-  //   offset: function() {
-  //     return window.innerHeight - 200;
-  //   },
-  //   once: true,
-  //   onShown: function(element) {
-  //     if ($(element).is('.ease-order')) {
-  //       $(element)
-  //         .find('.ease-order__item')
-  //         .each(function(i) {
-  //           let $this = $(this);
-  //           $(this).attr('data-scroll', '');
-  //           window.setTimeout(function() {
-  //             $this.attr('data-scroll', 'in');
-  //           }, 300 * i);
-  //         });
-  //     }
-  //   },
-  // });
 
   /**
    * Remove placeholder on click
@@ -174,27 +106,65 @@ $(document).on('ready', function () {
     }
   );
 
-  /**
-   * Add `is-active` class to menu-icon button on Responsive menu toggle
-   * And remove it on breakpoint change
-   */
-  $(window)
-    .on('toggled.zf.responsiveToggle', function () {
-      $('.menu-icon').toggleClass('is-active');
-    })
-    .on('changed.zf.mediaquery', function () {
-      $('.menu-icon').removeClass('is-active');
-    });
+  function toggleMobileMenu() {
+    const $menuToggle = $('.mobile-menu-toggle');
+    const $menu = $('#main-menu');
 
-  /**
-   * Close responsive menu on orientation change
-   */
-  $(window).on('orientationchange', function () {
-    setTimeout(function () {
-      if ($('.menu-icon').hasClass('is-active') && window.innerWidth < 641) {
-        $('[data-responsive-toggle="main-menu"]').foundation('toggleMenu');
+    const isActive = $menuToggle.hasClass('is-active');
+
+    if (isActive) {
+      $menuToggle.removeClass('is-active');
+      $menu.removeClass('expanded').slideUp(300);
+    } else {
+      $menuToggle.addClass('is-active');
+      $menu.addClass('expanded').slideDown(300);
+    }
+  }
+
+  function closeMobileMenu() {
+    $('.mobile-menu-toggle').removeClass('is-active');
+    $('#main-menu').removeClass('expanded').slideUp(300);
+  }
+
+  $(document).on('click', '.mobile-menu-toggle', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleMobileMenu();
+  });
+
+  $(document).on('click', '.header-menu a', function () {
+    if (window.innerWidth < 640) {
+      closeMobileMenu();
+    }
+  });
+
+  $(document).on('click', function (e) {
+    if (window.innerWidth < 640) {
+      if (
+        !$(e.target).closest('.header').length &&
+        $('.mobile-menu-toggle').hasClass('is-active')
+      ) {
+        closeMobileMenu();
       }
-    }, 200);
+    }
+  });
+
+  $(window).on('resize', function () {
+    if (window.innerWidth >= 640) {
+      $('.mobile-menu-toggle').removeClass('is-active');
+      $('#main-menu').removeClass('expanded').show();
+    } else {
+      $('#main-menu').hide();
+    }
+  });
+
+  $(window).on('orientationchange', function () {
+    if (
+      $('.mobile-menu-toggle').hasClass('is-active') &&
+      window.innerWidth < 641
+    ) {
+      closeMobileMenu();
+    }
   });
 
   resizeVideo();
@@ -204,20 +174,23 @@ $(document).on('ready', function () {
  * Scripts which runs after all elements load
  */
 $(window).on('load', function () {
-  // jQuery code goes here
-
   let $preloader = $('.preloader');
   if ($preloader.length) {
     $preloader.addClass('preloader--hidden');
   }
+
+  /*
+   *  This function will render each map when the document is ready (page has loaded)
+   */
+  $('.event-map-container').each(function () {
+    render_map($(this));
+  });
 });
 
 /**
  * Scripts which runs at window resize
  */
 $(window).on('resize', function () {
-  // jQuery code goes here
-
   resizeVideo();
 });
 
@@ -227,63 +200,173 @@ $(window).on('resize', function () {
 $(window).on('scroll', function () {
   // jQuery code goes here
 });
-function toggleMobileMenu() {
-  const $menuToggle = $('.mobile-menu-toggle');
-  const $menu = $('#main-menu');
 
-  const isActive = $menuToggle.hasClass('is-active');
+document.addEventListener('DOMContentLoaded', function () {
+  // Remove date restrictions to allow past dates
+  const dateInputs = document.querySelectorAll('input[type="date"]');
+  dateInputs.forEach(function (input) {
+    input.removeAttribute('min');
+    input.removeAttribute('max');
+  });
+});
 
-  if (isActive) {
-    $menuToggle.removeClass('is-active');
-    $menu.removeClass('expanded').slideUp(300);
-  } else {
-    $menuToggle.addClass('is-active');
-    $menu.addClass('expanded').slideDown(300);
+// ACF Google Map JS code
+
+/*
+ *  This function will render a Google Map onto the selected jQuery element
+ */
+function render_map($el) {
+  // var
+  var $markers = $el.find('.marker');
+  // var styles = []; // Uncomment for map styling
+
+  // vars
+  var args = {
+    zoom: 16,
+    center: new google.maps.LatLng(0, 0),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false,
+    styles: [
+      {
+        featureType: 'all',
+        elementType: 'labels.text',
+        stylers: [
+          {
+            color: '#878787',
+          },
+        ],
+      },
+      {
+        featureType: 'all',
+        elementType: 'labels.text.stroke',
+        stylers: [
+          {
+            visibility: 'off',
+          },
+        ],
+      },
+      {
+        featureType: 'landscape',
+        elementType: 'all',
+        stylers: [
+          {
+            color: '#f9f5ed',
+          },
+        ],
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'all',
+        stylers: [
+          {
+            color: '#f5f5f5',
+          },
+        ],
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [
+          {
+            color: '#c9c9c9',
+          },
+        ],
+      },
+      {
+        featureType: 'water',
+        elementType: 'all',
+        stylers: [
+          {
+            color: '#aee0f4',
+          },
+        ],
+      },
+    ],
+  };
+
+  // create map
+  var map = new google.maps.Map($el[0], args);
+
+  // add a markers reference
+  map.markers = [];
+
+  // add markers
+  $markers.each(function () {
+    add_marker($(this), map);
+  });
+
+  // center map
+  center_map(map);
+}
+
+/*
+ *  This function will add a marker to the selected Google Map
+ */
+var infowindow;
+
+function add_marker($marker, map) {
+  // var
+  var latlng = new google.maps.LatLng(
+    $marker.attr('data-lat'),
+    $marker.attr('data-lng')
+  );
+
+  // Custom marker icon
+  var customIcon = {
+    url:
+      $marker.data('marker-icon') ||
+      '/wp-content/themes/your-theme/assets/images/event.png',
+    scaledSize: new google.maps.Size(150, 70),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(40, 90),
+  };
+  // create marker
+  var marker = new google.maps.Marker({
+    position: latlng,
+    map: map,
+    icon: customIcon,
+  });
+
+  // add to array
+  map.markers.push(marker);
+
+  // if marker contains HTML, add it to an infoWindow
+  if ($.trim($marker.html())) {
+    // create info window
+    infowindow = new google.maps.InfoWindow();
+
+    // show info window when marker is clicked
+    google.maps.event.addListener(marker, 'click', function () {
+      // Close previously opened infowindow, fill with new content and open it
+      infowindow.close();
+      infowindow.setContent($marker.html());
+      infowindow.open(map, marker);
+    });
   }
 }
 
-function closeMobileMenu() {
-  $('.mobile-menu-toggle').removeClass('is-active');
-  $('#main-menu').removeClass('expanded').slideUp(300);
-}
+/*
+ *  This function will center the map, showing all markers attached to this map
+ */
+function center_map(map) {
+  // vars
+  var bounds = new google.maps.LatLngBounds();
 
-$(document).on('click', '.mobile-menu-toggle', function (e) {
-  e.preventDefault();
-  e.stopPropagation();
-  toggleMobileMenu();
-});
+  // loop through all markers and create bounds
+  $.each(map.markers, function (i, marker) {
+    var latlng = new google.maps.LatLng(
+      marker.position.lat(),
+      marker.position.lng()
+    );
+    bounds.extend(latlng);
+  });
 
-$(document).on('click', '.header-menu a', function () {
-  if (window.innerWidth < 640) {
-    closeMobileMenu();
-  }
-});
-
-$(document).on('click', function (e) {
-  if (window.innerWidth < 640) {
-    if (
-      !$(e.target).closest('.header').length &&
-      $('.mobile-menu-toggle').hasClass('is-active')
-    ) {
-      closeMobileMenu();
-    }
-  }
-});
-
-$(window).on('resize', function () {
-  if (window.innerWidth >= 640) {
-    $('.mobile-menu-toggle').removeClass('is-active');
-    $('#main-menu').removeClass('expanded').show();
+  // only 1 marker?
+  if (map.markers.length == 1) {
+    // set center of map
+    map.setCenter(bounds.getCenter());
   } else {
-    $('#main-menu').hide();
+    // fit to bounds
+    map.fitBounds(bounds);
   }
-});
-
-$(window).on('orientationchange', function () {
-  if (
-    $('.mobile-menu-toggle').hasClass('is-active') &&
-    window.innerWidth < 641
-  ) {
-    closeMobileMenu();
-  }
-});
+}

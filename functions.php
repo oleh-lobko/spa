@@ -1,6 +1,5 @@
 <?php
 
-use theme\CreateLazyImg;
 use theme\DynamicAdmin;
 use theme\WlAcfGfField;
 
@@ -73,17 +72,18 @@ array_map(function ($filename) {
     'tiny-mce-customizations',
     'posttypes',
     'rest',
-    //    'gutenberg-support', // !!!IMPORTANT Comment the "Disable gutenberg" filter to enable Gutenberg
+    'spa-events-cpt',
+    //    'gutenberg-support',
     //    'woo-customizations',
     //    'divi-support',
     //    'elementor-support',
     //    'shortcodes',
     'acf-placeholder',
-    'pressable',
+    'twitter-integration',
 ]);
 
 // Register ACF Gravity Forms field
-if (class_exists('theme\WlAcfGfField')) {
+if (class_exists('WlAcfGfField')) {
     // initialize
     new WlAcfGfField();
 }
@@ -139,28 +139,110 @@ if (class_exists('theme\DynamicAdmin') && is_admin()) {
 }
 
 // Apply lazyload to whole page content
-if (class_exists('theme\CreateLazyImg')) {
-    add_action('template_redirect', function () {
-        ob_start(function ($html) {
-            $lazy = new CreateLazyImg();
-            $buffer = $lazy->ignoreScripts($html);
-            $buffer = $lazy->ignoreNoscripts($buffer);
-            $html = $lazy->lazyloadImages($html, $buffer);
-            $html = $lazy->lazyloadPictures($html, $buffer);
+// Auto-populate month and day fields from event_date
+add_action('acf/save_post', function ($post_id) {
+    // Check if this is a spa_event post type
+    if ('spa_event' !== get_post_type($post_id)) {
+        return;
+    }
 
-            return $lazy->lazyloadBackgroundImages($html, $buffer);
-        });
-    });
-}
+    // Auto-populate legacy fields from start_date for backward compatibility
+    $start_date = get_field('start_date', $post_id);
 
-/** ========================================================================
- * PUT YOU FUNCTIONS BELOW.
- */
+    if ($start_date) {
+        $timestamp = strtotime($start_date);
 
-// Custom media library's image sizes
-add_image_size('full_hd', 1920, 0, ['center', 'center']);
-add_image_size('large_high', 1024, 0, false);
-// add_image_size( 'name', width, height, ['center','center']);
+        // Update legacy fields for backward compatibility
+        $month = strtoupper(date('M', $timestamp));
+        $day = date('j', $timestamp);
+        $year = date('Y', $timestamp);
+
+        update_field('event_month', $month, $post_id);
+        update_field('event_day', $day, $post_id);
+        update_field('event_year', $year, $post_id);
+    }
+}, 20);
+
+// Add JavaScript to admin for real-time date updates
+add_action('admin_footer', function () {
+    global $post_type;
+    if ('spa_event' === $post_type) {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                // Update legacy fields when start_date changes
+                $(document).on('change', 'input[data-name="start_date"]', function() {
+                    var $this = $(this);
+                    var formContainer = $this.closest('.acf-fields, form, .post-body');
+                    var monthField = formContainer.find('input[data-name="event_month"]');
+                    var dayField = formContainer.find('input[data-name="event_day"]');
+                    var yearField = formContainer.find('input[data-name="event_year"]');
+                    var eventDateField = formContainer.find('input[data-name="event_date"]');
+
+                    if ($this.val()) {
+                        var dateValue = $this.val();
+                        var date;
+                        if (dateValue.includes('/')) {
+                            var parts = dateValue.split('/');
+                            date = new Date(parts[2], parts[1] - 1, parts[0]);
+                        } else if (dateValue.includes('-')) {
+                            date = new Date(dateValue);
+                        } else {
+                            date = new Date(dateValue);
+                        }
+
+                        var months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+                            'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                        var month = months[date.getMonth()];
+                        var day = date.getDate();
+                        var year = date.getFullYear();
+
+                        // Update legacy fields for backward compatibility
+                        monthField.val(month);
+                        dayField.val(day);
+                        yearField.val(year);
+                        eventDateField.val(dateValue);
+                    }
+                });
+
+                // Remove date picker restrictions to allow past dates
+                $(document).on('focus', 'input[data-name="start_date"], input[data-name="end_date"]', function() {
+                    $(this).removeAttr('min');
+                });
+            });
+        </script>
+        <?php
+    }
+});
 
 // Disable gutenberg
 add_filter('use_block_editor_for_post_type', '__return_false');
+
+// Disable debug output on frontend
+if (!is_admin()) {
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    error_reporting(0);
+}
+
+// Hide PHP errors, warnings and notices
+add_action('init', function () {
+    if (!is_admin() && !WP_DEBUG) {
+        ini_set('display_errors', 0);
+        error_reporting(0);
+    }
+});
+
+// / Ensure Events page uses archive-spa_event.php
+add_filter('page_template', function ($template) {
+    global $post;
+
+    if ($post && 'events' === $post->post_name) {
+        $new_template = locate_template(['archive-spa_event.php']);
+        if (!empty($new_template)) {
+            return $new_template;
+        }
+    }
+
+    return $template;
+});

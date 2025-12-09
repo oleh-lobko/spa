@@ -3,12 +3,6 @@
  * Template Name: Events Page.
  */
 
-// Disable debug output
-if (!is_admin()) {
-    error_reporting(0);
-    ini_set('display_errors', 0);
-}
-
 $featured_image = get_field('featured_image');
 $start_date = get_field('start_date');
 $end_date = get_field('end_date');
@@ -45,14 +39,15 @@ get_header(); ?>
                         $original_query = $wp_query;
 
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                        $posts_per_page_option = get_field('post_per_page_archive', 'option');
 
                         $wp_query = new WP_Query([
-                            'post_type' => 'spa_events',
-                            'posts_per_page' => get_option('posts_per_page'),
+                            'post_type' => 'spa_event',
+                            'posts_per_page' => $posts_per_page_option,
                             'paged' => $paged,
                             'post_status' => 'publish',
-                            'meta_key' => 'event_day',
-                            'orderby' => 'meta_value_num',
+                            'meta_key' => 'start_date',
+                            'orderby' => 'meta_value',
                             'order' => 'ASC',
                         ]);
 

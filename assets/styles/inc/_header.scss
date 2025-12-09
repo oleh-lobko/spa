@@ -34,6 +34,15 @@
     }
   }
 }
+.logo-hero {
+  max-width: 420px;
+  @include breakpoint(medium down) {
+    max-width: 320px;
+  }
+  @include breakpoint(small down) {
+    max-width: 220px;
+  }
+}
 
 /* No Logo only on home page*/
 .logo {

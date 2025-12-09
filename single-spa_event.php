@@ -127,7 +127,7 @@ get_header(); ?>
                         <?php } ?>
 
                         <!-- Event Map -->
-                        <?php if ($event_map = get_field('event_location_map')) { ?>
+                        <?php if ($event_map = get_field('event_map')) { ?>
                             <div class="event-map-container">
                                 <div class="event-map-display">
                                     <div class="marker" data-lat="<?php echo $event_map['lat']; ?>" data-lng="<?php echo $event_map['lng']; ?>"

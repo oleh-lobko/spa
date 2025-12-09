@@ -31,30 +31,46 @@ function show_custom_logo($size = 'medium'): void
  *
  * @param string $query
  */
-function foundation_pagination($query = ''): void
-{
-    if (empty($query)) {
+
+function foundation_pagination($query = null, $paged = null) {
+    if (!$query) {
         global $wp_query;
         $query = $wp_query;
     }
 
-    $big = 999999999;
+    if (!$paged) {
+        $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+    }
 
-    $links = paginate_links([
-        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-        'format' => '?paged=%#%',
-        'prev_next' => true,
-        'prev_text' => '&laquo;',
-        'next_text' => '&raquo;',
-        'current' => max(1, get_query_var('paged')),
-        'total' => $query->max_num_pages,
-        'type' => 'list',
-    ]);
+    if ($query->max_num_pages > 1): ?>
+        <div class="events-pagination">
+            <div class="pagination-controls">
+                <?php
+                $pagination_args = array(
+                    'total' => $query->max_num_pages,
+                    'current' => $paged,
+                    'prev_text' => '« PREV',
+                    'next_text' => 'NEXT »',
+                    'type' => 'array',
+                    'show_all' => false,
+                    'end_size' => 1,
+                    'mid_size' => 2,
+                );
 
-    $pagination = str_replace('page-numbers', 'pagination', $links);
+                $pagination_links = paginate_links($pagination_args);
 
-    echo $pagination;
+                if ($pagination_links) {
+                    foreach ($pagination_links as $link) {
+                        echo $link;
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    <?php endif;
 }
+
+
 
 /**
  * Enqueue external fonts with font-display: swap; property.

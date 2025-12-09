@@ -20,9 +20,13 @@
 @import 'inc/hero-section';
 @import 'inc/sp-buttons';
 @import 'inc/footer_section';
+@import 'inc/single-event';
+@import 'inc/single';
 @import 'inc/spa-layout';
 @import 'inc/spa-events';
 @import 'inc/spa-events-page';
+@import 'inc/spa-stories';
+@import 'inc/spa-stories-page';
 /* -----------------------------------------
    Slick
 ----------------------------------------- */
@@ -83,22 +87,22 @@ comment or delete styles below */
 /* -----------------------------------------
   TMPL: Home page
 ----------------------------------------- */
-@import 'templates/home';
+@import 'inc/templates/home';
 
 /* -----------------------------------------
   Page: Blog
 ----------------------------------------- */
-@import 'templates/blog';
+@import 'inc/templates/blog';
 
 /* -----------------------------------------
   TMPL: Default page
 ----------------------------------------- */
-@import 'templates/default';
+@import 'inc/templates/default';
 
 /* -----------------------------------------
   TMPL: Contact page
 ----------------------------------------- */
-@import 'templates/contact';
+@import 'inc/templates/contact';
 
 /* -----------------------------------------
   Home slider
