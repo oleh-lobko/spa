@@ -1,35 +1,17 @@
 /* -----------------------------------------
-   SPA Events Page Styles - Fixed Layout with Date Outside
+   SPA Events Page
 ----------------------------------------- */
-
+//Variables
+$light-blue: #17c8ff;
+$dark-blue: #065481;
+$ddark-blue:#011a20;
+$primary-pink: #f75097;
+$pagination-pr: #2e5c73;
 .events-page {
   padding: 3rem 0;
-  background-color: #ffffff;
-
-  .events-page-header {
-    margin-bottom: 3rem;
-    text-align: left;
-
-    .events-page-title {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 800; // Extrabold
-      font-size: 62px;
-      color: #17c8ff;
-      margin: 0;
-      text-transform: none;
-
-      @include breakpoint(medium down) {
-        font-size: 48px;
-      }
-
-      @include breakpoint(small down) {
-        font-size: 36px;
-      }
-    }
-  }
-
+  background-color: $color-white;
   .featured-events-stripe {
-    background-color: #17c8ff;
+    background-color: $light-blue;
     color: hsla(0, 0%, 100%, 0.8);
     padding: 12px 0;
     margin: 0 auto 3rem auto;
@@ -49,7 +31,112 @@
       animation: none;
     }
   }
+  .events-page-header {
+    margin-bottom: 3rem;
+    text-align: left;
 
+    .events-page-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: 62px;
+      color: $light-blue;
+      margin: 0;
+      text-transform: none;
+
+      @include breakpoint(medium down) {
+        font-size: 48px;
+      }
+
+      @include breakpoint(small down) {
+        font-size: 36px;
+      }
+    }
+  }
+  // Pagination
+  .events-pagination {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: $color-white;
+    padding: 0.5rem 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid $pagination-pr;
+    box-shadow: 0 1px 3px rgba(46, 92, 115, 0.1);
+
+    .pagination-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+
+      a,
+      span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: $pagination-pr;
+        background: none;
+        border: none;
+        padding: 0 6px;
+        margin: 0 2px;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+
+      .current {
+        font-weight: 700;
+        color: $light-blue;
+      }
+
+      .prev,
+      .next {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0 10px;
+        color: $pagination-pr;
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+
+      .dots {
+        color: $pagination-pr;
+        cursor: default;
+        user-select: none;
+      }
+
+      @include breakpoint(small down) {
+        gap: 0.3rem;
+
+        a,
+        span {
+          min-width: 28px;
+          height: 28px;
+          font-size: 12px;
+        }
+
+        .prev,
+        .next {
+          font-size: 10px;
+          min-width: 40px;
+          padding: 0 6px;
+        }
+      }
+    }
+  }
   .events-list {
     max-width: 800px;
     margin: 0 auto;
@@ -59,7 +146,7 @@
       position: relative;
       margin-bottom: 4rem;
       padding-bottom: 3rem;
-      border-bottom: 2px solid #17c8ff;
+      border-bottom: 2px solid $light-blue;
 
       &:last-child {
         border-bottom: none;
@@ -75,8 +162,8 @@
         position: absolute;
         left: -100px;
         top: 0;
-        background-color: #065481;
-        color: #ffffff;
+        background-color: $light-blue;
+        color: $color-white;
         padding: 1rem;
         text-align: center;
         min-width: 70px;
@@ -91,7 +178,7 @@
           height: 0;
           border-left: 15px solid transparent;
           border-right: 15px solid transparent;
-          border-top: 15px solid #065481;
+          border-top: 15px solid $dark-blue;
         }
 
         .event-month {
@@ -134,9 +221,9 @@
 
         .event-title {
           font-family: 'Open Sans', sans-serif;
-          font-weight: 300; // Light
+          font-weight: 300;
           font-size: 40px;
-          color: #011a20;
+          color: $ddark-blue;
           margin-bottom: 1.5rem;
           line-height: 1.2;
 
@@ -165,7 +252,7 @@
           font-family: 'Open Sans', sans-serif;
           font-weight: 400;
           font-size: 16px;
-          color: #011a20;
+          color: $ddark-blue;
           line-height: 1.6;
 
           @include breakpoint(medium down) {
@@ -178,7 +265,7 @@
 
           .event-read-more-btn {
             display: inline-block;
-            color: #f75097;
+            color: $primary-pink;
             font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             font-size: 12px;
@@ -218,7 +305,7 @@
                 font-family: 'Open Sans', sans-serif;
                 font-weight: 800; // Extrabold
                 font-size: 14px;
-                color: #065481;
+                color: $dark-blue;
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 margin-bottom: 0.75rem;
@@ -228,7 +315,7 @@
                 font-family: 'Open Sans', sans-serif;
                 font-weight: 400; // Regular
                 font-size: 14px;
-                color: #011a20;
+                color: $ddark-blue;
                 line-height: 1.5;
 
                 .book-tickets-btn {
@@ -239,7 +326,7 @@
                 }
 
                 .btn-available {
-                  color: #f75097;
+                  color: $primary-pink;
 
                   &:hover {
                     color: #c71585;
@@ -248,7 +335,7 @@
                 }
 
                 .btn-sold-out {
-                  color: #011a20;
+                  color: $ddark-blue;
 
                   &:hover {
                     color: #00008b;
@@ -270,92 +357,6 @@
               }
             }
           }
-        }
-      }
-    }
-  }
-
-  // Pagination
-  .events-pagination {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    background-color: #fff;
-    padding: 0.5rem 0;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #2e5c73;
-    box-shadow: 0 1px 3px rgba(46, 92, 115, 0.1);
-
-    .pagination-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-
-      a,
-      span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 32px;
-        height: 32px;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 14px;
-        color: #2e5c73;
-        background: none;
-        border: none;
-        padding: 0 6px;
-        margin: 0 2px;
-        text-decoration: none;
-        transition: color 0.2s ease;
-
-        &:hover {
-          color: #17c8ff;
-        }
-      }
-
-      .current {
-        font-weight: 700;
-        color: #17c8ff;
-      }
-
-      .prev,
-      .next {
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        padding: 0 10px;
-        color: #2e5c73;
-
-        &:hover {
-          color: #17c8ff;
-        }
-      }
-
-      .dots {
-        color: #2e5c73;
-        cursor: default;
-        user-select: none;
-      }
-
-      @include breakpoint(small down) {
-        gap: 0.3rem;
-
-        a,
-        span {
-          min-width: 28px;
-          height: 28px;
-          font-size: 12px;
-        }
-
-        .prev,
-        .next {
-          font-size: 10px;
-          min-width: 40px;
-          padding: 0 6px;
         }
       }
     }

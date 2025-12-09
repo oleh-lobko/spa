@@ -1,5 +1,5 @@
 /* -----------------------------------------
-   Header Styles for SPA Design - Updated According to Mockup
+   Header
 ----------------------------------------- */
 
 .header {
@@ -14,7 +14,6 @@
   }
 }
 
-/* Main header container */
 .menu-grid-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -44,12 +43,10 @@
   }
 }
 
-/* No Logo only on home page*/
 .logo {
   margin: 0 0 15px 0;
   display: none;
 
-  // Show logo on all pages except home template
   body:not(.page-template-template-home) & {
     display: block;
     margin-right: 2rem;
@@ -151,7 +148,6 @@
 }
 
 @include breakpoint(small down) {
-  /* Mobile Navigation */
   .menu-grid-container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -179,7 +175,6 @@
     margin: 0 0 15px 0;
     display: none;
 
-    // Show logo on all pages except home template
     body:not(.page-template-template-home) & {
       margin-right: auto;
       margin-bottom: 0;
@@ -233,7 +228,6 @@
     }
   }
 
-  // Кастомний мобільний бургер
   .mobile-menu-toggle {
     background: transparent;
     border: none;
@@ -390,7 +384,6 @@
     }
   }
 
-  // Extra small screens
   @media (max-width: 360px) {
     .header {
       min-height: 45px;
@@ -432,7 +425,6 @@
 }
 
 @include breakpoint(medium) {
-  /* Desktop Navigation */
   .header {
     padding: 0;
   }
@@ -542,15 +534,12 @@
       }
     }
   }
-  /* Override Foundation top-bar default styles */
   .top-bar {
     .top-bar-left,
     .top-bar-right {
       flex: none;
     }
   }
-
-  /* Mobile menu specific styling */
   @include breakpoint(small down) {
     .top-bar {
       &.expanded {

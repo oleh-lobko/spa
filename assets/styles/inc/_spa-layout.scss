@@ -1,5 +1,5 @@
 /* -----------------------------------------
-   SPA Layout & Grid System
+   SPA Layout
 ----------------------------------------- */
 
 // Hide any debug output elements
@@ -15,9 +15,7 @@
   }
 }
 
-// SPA specific layout fixes
 .spa-layout {
-  // Container
   .spa-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -28,7 +26,6 @@
     }
   }
 
-  // Grid system
   .spa-row {
     display: flex;
     flex-wrap: wrap;

@@ -1,13 +1,20 @@
 /* -----------------------------------------
-   SPA Single Post Page Styles
+   SPA Single
 ----------------------------------------- */
+//Variables
+$meta-category-bg: #00bcd4;
+$single-post-gr: #424242;
+$primary-blue: #1e88e5;
+$primary-blue-dr: #0d47a1;
+$light-blue: #f8f9fa;
+
 
 .single-post-page {
   padding: 3rem 0;
-  background-color: #ffffff;
+  background-color: $color-white;
 
   .single-post-article {
-    background-color: #ffffff;
+    background-color: $color-white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
@@ -16,8 +23,8 @@
 
   .single-post-header {
     padding: 2rem 2rem 1rem;
-    background: linear-gradient(135deg, #1e88e5 0%, #0d47a1 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg,$primary-blue 0%, $primary-blue-dr 100%);
+    color: $color-white;
     position: relative;
 
     &::before {
@@ -53,25 +60,23 @@
         letter-spacing: 1px;
 
         .meta-date {
-          color: #ffffff;
+          color: $color-white;
           font-weight: 700;
         }
-
+        .meta-author {
+          color: rgba(255, 255, 255, 0.9);
+        }
         .meta-separator {
           color: rgba(255, 255, 255, 0.7);
         }
 
         .meta-category {
-          background-color: #00bcd4;
-          color: #ffffff;
+          background-color: $meta-category-bg;
+          color: $color-white;
           padding: 0.25rem 0.5rem;
           border-radius: 4px;
           font-weight: 600;
           font-size: 0.75rem;
-        }
-
-        .meta-author {
-          color: rgba(255, 255, 255, 0.9);
         }
       }
 
@@ -88,7 +93,7 @@
       font-weight: 700;
       line-height: 1.2;
       margin: 0;
-      color: #ffffff;
+      color: $color-white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 2;
@@ -126,20 +131,19 @@
   .single-post-content {
     padding: 2rem;
     line-height: 1.8;
-    color: #424242;
+    color: $single-post-gr;
 
     @include breakpoint(medium down) {
       padding: 1.5rem;
     }
 
-    // Typography
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      color: #1e88e5;
+      color:$primary-blue;
       font-weight: 600;
       margin: 2rem 0 1rem 0;
       line-height: 1.3;
@@ -151,19 +155,19 @@
 
     h2 {
       font-size: 1.875rem;
-      border-bottom: 3px solid #00bcd4;
+      border-bottom: 3px solid $meta-category-bg;
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
     }
 
     h3 {
       font-size: 1.5rem;
-      color: #0d47a1;
+      color: $primary-blue-dr;
     }
 
     h4 {
       font-size: 1.25rem;
-      color: #1e88e5;
+      color:$primary-blue;
     }
 
     p {
@@ -175,7 +179,6 @@
       }
     }
 
-    // Lists
     ul,
     ol {
       margin: 1.5rem 0;
@@ -186,17 +189,16 @@
         line-height: 1.6;
 
         &::marker {
-          color: #1e88e5;
+          color:$primary-blue;
         }
       }
     }
 
-    // Blockquotes
     blockquote {
       margin: 2rem 0;
       padding: 1.5rem;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      border-left: 4px solid #1e88e5;
+      background: linear-gradient(135deg, $light-blue 0%, #e9ecef 100%);
+      border-left: 4px solid $primary-blue;
       border-radius: 0 8px 8px 0;
       font-style: italic;
       color: #495057;
@@ -208,7 +210,7 @@
         top: -10px;
         left: 10px;
         font-size: 3rem;
-        color: #1e88e5;
+        color:$primary-blue;
         opacity: 0.3;
       }
 
@@ -218,9 +220,8 @@
       }
     }
 
-    // Code
     code {
-      background: #f8f9fa;
+      background: $light-blue;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
       font-family: 'Courier New', monospace;
@@ -230,8 +231,8 @@
     }
 
     pre {
-      background: #1e88e5;
-      color: #ffffff;
+      background:$primary-blue;
+      color: $color-white;
       padding: 1.5rem;
       border-radius: 8px;
       overflow-x: auto;
@@ -245,7 +246,6 @@
       }
     }
 
-    // Images
     img {
       max-width: 100%;
       height: auto;
@@ -254,23 +254,22 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
     }
 
-    // Links
     a {
-      color: #1e88e5;
+      color:$primary-blue;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: all 0.3s ease;
 
       &:hover {
-        border-bottom-color: #1e88e5;
-        color: #0d47a1;
+        border-bottom-color: $primary-blue;
+        color: $primary-blue-dr;
       }
     }
   }
 
   .single-post-footer {
     padding: 2rem;
-    background: #f8f9fa;
+    background: $light-blue;
     border-top: 1px solid #e9ecef;
 
     @include breakpoint(medium down) {
@@ -288,7 +287,7 @@
       .categories-label,
       .tags-label {
         font-weight: 600;
-        color: #1e88e5;
+        color:$primary-blue;
         margin-bottom: 0.75rem;
         display: block;
         font-size: 0.875rem;
@@ -306,8 +305,8 @@
       .category-tag,
       .tag-item {
         display: inline-block;
-        background: #1e88e5;
-        color: #ffffff;
+        background:$primary-blue;
+        color: $color-white;
         padding: 0.375rem 0.75rem;
         border-radius: 20px;
         text-decoration: none;
@@ -318,14 +317,14 @@
         transition: all 0.3s ease;
 
         &:hover {
-          background: #0d47a1;
+          background: $primary-blue-dr;
           transform: translateY(-2px);
           box-shadow: 0 3px 6px rgba(30, 136, 229, 0.3);
         }
       }
 
       .tag-item {
-        background: #00bcd4;
+        background: $meta-category-bg;
 
         &:hover {
           background: #00acc1;
@@ -352,17 +351,17 @@
         .nav-link {
           display: block;
           padding: 1.5rem;
-          background: #ffffff;
+          background: $color-white;
           border: 1px solid #e9ecef;
           border-radius: 8px;
           text-decoration: none;
-          color: #424242;
+          color: $single-post-gr;
           transition: all 0.3s ease;
           height: 100%;
 
           &:hover {
-            background: #f8f9fa;
-            border-color: #1e88e5;
+            background: $light-blue;
+            border-color:$primary-blue;
             transform: translateY(-2px);
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
           }
@@ -380,7 +379,7 @@
           .nav-title {
             display: block;
             font-weight: 600;
-            color: #1e88e5;
+            color:$primary-blue;
             line-height: 1.3;
           }
         }
@@ -409,7 +408,7 @@
     }
 
     .sidebar {
-      background: #ffffff;
+      background: $color-white;
       border-radius: 8px;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
@@ -424,10 +423,10 @@
         .widget-title {
           font-size: 1.125rem;
           font-weight: 600;
-          color: #1e88e5;
+          color:$primary-blue;
           margin-bottom: 1rem;
           padding-bottom: 0.5rem;
-          border-bottom: 2px solid #00bcd4;
+          border-bottom: 2px solid $meta-category-bg;
         }
       }
     }
@@ -436,24 +435,24 @@
   .no-post-found {
     text-align: center;
     padding: 3rem;
-    background: #ffffff;
+    background: $color-white;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
 
     h2 {
-      color: #1e88e5;
+      color:$primary-blue;
       margin-bottom: 1rem;
     }
 
     p {
-      color: #424242;
+      color: $single-post-gr;
       margin-bottom: 2rem;
     }
 
     .btn-back-home {
       display: inline-block;
-      background: #1e88e5;
-      color: #ffffff;
+      background:$primary-blue;
+      color: $color-white;
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
       text-decoration: none;
@@ -461,7 +460,7 @@
       transition: all 0.3s ease;
 
       &:hover {
-        background: #0d47a1;
+        background: $primary-blue-dr;
         transform: translateY(-2px);
         box-shadow: 0 3px 6px rgba(30, 136, 229, 0.3);
       }
@@ -469,7 +468,6 @@
   }
 }
 
-// Responsive Design
 @include breakpoint(medium down) {
   .single-post-page {
     padding: 2rem 0;
@@ -516,10 +514,9 @@
   }
 }
 
-// Print Styles
 @media print {
   .single-post-page {
-    background: #ffffff;
+    background: $color-white;
 
     .single-post-article {
       box-shadow: none;
@@ -527,7 +524,7 @@
 
     .single-post-header {
       background: none;
-      color: #000000;
+      color: $black;
     }
 
     .sidebar-wrapper,

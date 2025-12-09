@@ -4,6 +4,11 @@ $primary-blue: #2c5aa0;
 $dark-blue: #1e3c72;
 $text-gray: #012d38;
 $white: #ffffff;
+$primary-bg-pink: #b53e70;
+$primary-overlay-btn: #a03973;
+$sidebar-cta-bg: #065481;
+$cta-title: #17c8ff;
+
 
 .home-slide__caption {
   .cell {
@@ -66,34 +71,11 @@ $white: #ffffff;
     @include breakpoint(small down) {
       font-size: 32px;
       margin-bottom: 20px;
-      // Prevent breaking between & and the next word
       .no-break {
         white-space: nowrap;
       }
     }
   }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $primary-blue;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 25px;
-    font-family: 'Open Sans', sans-serif;
-
-    @include breakpoint(medium down) {
-      font-size: 1.25rem;
-      margin-bottom: 20px;
-    }
-
-    @include breakpoint(small down) {
-      font-size: 1.125rem;
-      margin-bottom: 15px;
-    }
-  }
-
-  //"Fighting fit and raring to go"
   .title-blue {
     font-size: 28px;
     font-weight: 400;
@@ -116,23 +98,23 @@ $white: #ffffff;
       letter-spacing: 0.5px;
     }
   }
-
-  p {
-    font-size: 16px;
-    color: $text-gray;
-    line-height: 1.6;
-    margin-bottom: 20px;
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary-blue;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400; // Regular
 
     @include breakpoint(medium down) {
-      font-size: 15px;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
     }
 
     @include breakpoint(small down) {
-      font-size: 14px;
+      font-size: 1.125rem;
       margin-bottom: 15px;
-      line-height: 1.5;
     }
   }
 
@@ -167,7 +149,6 @@ $white: #ffffff;
         min-height: 450px;
       }
     }
-
     .responsive-embed {
       width: 100%;
       position: relative;
@@ -184,7 +165,24 @@ $white: #ffffff;
       }
     }
   }
+  p {
+    font-size: 16px;
+    color: $text-gray;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; // Regular
 
+    @include breakpoint(medium down) {
+      font-size: 15px;
+    }
+
+    @include breakpoint(small down) {
+      font-size: 14px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+  }
   .video-play-button {
     position: absolute;
     top: 50%;
@@ -242,7 +240,7 @@ $white: #ffffff;
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background: #b53e70;
+    background: $primary-bg-pink;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -259,13 +257,13 @@ $white: #ffffff;
     height: 0;
     border-style: solid;
     border-width: 20px 0 20px 25px;
-    border-color: transparent transparent transparent #ffffff;
+    border-color: transparent transparent transparent $color-white;
     position: relative;
     left: 2px;
   }
 
   .mejs-overlay-button:hover {
-    background: #a03973;
+    background: $primary-overlay-btn;
     border-radius: 50%;
     box-shadow: 0 12px 40px rgba(181, 62, 112, 0.5);
     transform: translate(-50%, -50%) scale(1.1);
@@ -322,8 +320,8 @@ $white: #ffffff;
 }
 
 .sidebar-cta {
-  background-color: #065481;
-  color: $white;
+  background-color: $sidebar-cta-bg;
+  color: $color-white;
   padding: 35px 30px;
   position: relative;
   margin-bottom: 25%;
@@ -363,7 +361,7 @@ $white: #ffffff;
     line-height: 20px;
     font-weight: 300;
     font-style: italic;
-    color: #17c8ff;
+    color: $cta-title;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: 'Open Sans', sans-serif;
@@ -405,7 +403,7 @@ $white: #ffffff;
       height: 0;
       border-style: solid;
       border-width: 5px 0 5px 6px;
-      border-color: transparent transparent transparent #ffffff;
+      border-color: transparent transparent transparent $color-white;
       transform: rotate(0deg);
       display: block;
     }
@@ -423,7 +421,6 @@ $white: #ffffff;
   }
 }
 
-// Responsive Design
 @include breakpoint(large) {
   .cta-block {
     display: flex;
@@ -469,7 +466,6 @@ $white: #ffffff;
   }
 }
 
-// Responsive Design
 @media (max-width: 1023px) {
   .sidebar-cta {
     margin: 5px 0 0 0;
@@ -498,7 +494,6 @@ $white: #ffffff;
   }
 }
 
-// Responsive Design
 @media (max-width: 1023px) {
   .hero-section {
     h1 {
@@ -524,7 +519,7 @@ $white: #ffffff;
       height: 60px;
 
       &::after {
-        border-left: 15px solid $white;
+        border-left: 15px solid $color-white;
         border-top: 9px solid transparent;
         border-bottom: 9px solid transparent;
       }
