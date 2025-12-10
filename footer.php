@@ -5,7 +5,6 @@
 
 // Get footer settings from ACF
 $footer_sections = get_field('footer_sections', 'options');
-
 // Separate sections by type
 $get_in_touch_section = null;
 $connect_with_us_section = null;
@@ -35,8 +34,11 @@ if ($footer_sections) {
     <div class="pre-footer-stripe">
     </div>
     <!-- Main Footer Content: Left Column (Get in Touch + Connect) and Right Column (Partners) -->
-    <div class="footer-main-content">
 
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
+                    <div class="footer-main-content">
         <!-- Left Column: Get in Touch + Connect with Us -->
         <div class="footer-left-column">
             <!-- Get in Touch -->
@@ -91,37 +93,40 @@ if ($footer_sections) {
         </div>
 
         <!-- Right Column: Main Partners -->
-        <?php if ($main_partners_section): ?>
-            <div class="footer-right-column">
-                <div class="footer-main-partners">
-                    <div class="partners-title">
-                        <?php echo esc_html($main_partners_section['section_title'] ?: 'Main partners'); ?>
-                    </div>
-                    <?php if (!empty($main_partners_section['partner_logos'])): ?>
-                        <div class="partner-logos">
-                            <?php foreach ($main_partners_section['partner_logos'] as $partner): ?>
-                                <div class="partner-logo">
-                                    <?php if (!empty($partner['url'])): ?>
-                                    <a href="<?php echo esc_url($partner['url']); ?>"
-                                       target="_blank"
-                                       rel="noopener noreferrer"
-                                       title="<?php echo esc_attr($partner['name']); ?>">
-                                        <?php endif; ?>
+                        <?php if ($main_partners_section): ?>
+                            <div class="footer-right-column">
+                                <div class="footer-main-partners">
+                                    <div class="partners-title">
+                                        <?php echo esc_html($main_partners_section['section_title'] ?: 'Main partners'); ?>
+                                    </div>
+                                    <?php if (!empty($main_partners_section['partner_logos'])): ?>
+                                        <div class="partner-logos">
+                                            <?php foreach ($main_partners_section['partner_logos'] as $partner): ?>
+                                                <div class="partner-logo">
+                                                    <?php
+                                                    $has_url = !empty($partner['url']);
+                                                    if ($has_url):
+                                                    ?>
+                                                    <a href="<?php echo esc_url($partner['url']); ?>"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       title="<?php echo esc_attr($partner['name']); ?>">
+                                                        <?php endif; ?>
 
-                                        <img src="<?php echo esc_url($partner['logo']['url']); ?>"
-                                             alt="<?php echo esc_attr($partner['name']); ?>"
-                                             loading="lazy">
+                                                        <img src="<?php echo esc_url($partner['logo']['url']); ?>"
+                                                             alt="<?php echo esc_attr($partner['name']); ?>"
+                                                             loading="lazy">
 
-                                        <?php if (!empty($partner['url'])): ?>
-                                    </a>
-                                <?php endif; ?>
+                                                        <?php if ($has_url): ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
     </div>
 
     <!-- Copyright Section -->
@@ -136,6 +141,9 @@ if ($footer_sections) {
             </div>
         </div>
     <?php } ?>
+        </div>
+    </div>
+    </div>
 </footer>
 <!-- END of footer -->
 

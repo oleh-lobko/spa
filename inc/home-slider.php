@@ -259,9 +259,7 @@ add_shortcode('slider', function () {
                                 <?php } ?>
                             </div>
                         <?php } ?>
-
-                        <div class="grid-container home-slide__caption">
-                            <div class="grid-x grid-margin-x">
+                        <div class="home_style_center">
                                 <div class="cell">
                                     <?php
                                     $logo_array = get_field('logo_slider', 'option');
@@ -274,9 +272,8 @@ add_shortcode('slider', function () {
                                             alt="<?php echo esc_attr($alt); ?>"
                                         />
                                     <?php endif; ?>
-                                </div>
-                            </div>
                         </div>
+                    </div>
                     </div>
 
                 </div>

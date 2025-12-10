@@ -25,8 +25,9 @@ use theme\FoundationNavigation;
 <?php wp_body_open(); ?>
 <!-- BEGIN of header -->
 <header class="header">
-    <div class="menu-grid-container">
-        <div class="grid-x">
+    <div class="grid-container grid-header">
+        <div class="grid-x grid-margin-x">
+            <div class="cell">
             <div class="header-content">
                 <!-- Logo -->
                 <div class="logo">
@@ -49,6 +50,7 @@ use theme\FoundationNavigation;
                         </div>
                     </nav>
                 <?php } ?>
+            </div>
             </div>
         </div>
     </div>

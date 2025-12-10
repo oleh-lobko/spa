@@ -64,7 +64,7 @@ get_header(); ?>
                                             <?php
 
                                             $word_count = str_word_count(strip_tags(get_the_content()));
-                                            $reading_time = ceil($word_count / 200); // 200 слів за хвилину
+                                            $reading_time = ceil($word_count / 200);
                                             ?>
                                             <?php echo $reading_time; ?> min read
                                         </div>

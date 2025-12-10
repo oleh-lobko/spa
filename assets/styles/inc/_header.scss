@@ -8,9 +8,21 @@
   z-index: 100;
   padding: 0;
   min-height: 60px;
-
+  display: flex;
+  align-items: center;
+  .grid-header {
+    width: 100%;
+  }
   @include breakpoint(small down) {
     min-height: 50px;
+    .grid-container {
+      margin-right: 0;
+      body:not(.page-template-template-home) & {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -52,7 +64,6 @@
   // Show logo on all pages except home template
   body:not(.page-template-template-home) & {
     display: block;
-    margin-right: 2rem;
 
     @include breakpoint(medium down) {
       margin-right: 1rem;
@@ -133,26 +144,35 @@
 .menu-container {
   display: flex;
   align-items: center;
+  .menu-header-container {
+    width: 100%;
+  }
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-
+  gap: rem-calc(90);
   .page-template-template-home & {
     justify-content: center;
+    @include breakpoint(small down) {
+      justify-content: flex-end;
+    }
   }
 
   body:not(.page-template-template-home) & {
-    justify-content: center;
+    justify-content: flex-start;
+    @include breakpoint(small down) {
+      justify-content: flex-end;
+    }
   }
 }
 
 @include breakpoint(small down) {
   /* Mobile Navigation */
-  .menu-grid-container {
+  .grid-header {
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: 100%;
@@ -165,11 +185,10 @@
   }
 
   .header-content {
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     width: 100%;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 1rem;
 
     .page-template-template-home & {
       justify-content: space-between;
@@ -199,35 +218,19 @@
           font-size: 1.25rem;
           display: flex;
           align-items: center;
-
-          @media (max-width: 360px) {
-            font-size: 1rem;
-          }
         }
 
         img {
           max-height: 35px;
           width: auto;
-
-          @media (max-width: 360px) {
-            max-height: 30px;
-          }
         }
 
         .spa-text {
           font-size: 1.25rem;
-
-          @media (max-width: 360px) {
-            font-size: 1rem;
-          }
         }
 
         .spa-subtitle {
           font-size: 0.7rem;
-
-          @media (max-width: 360px) {
-            font-size: 0.6rem;
-          }
         }
       }
     }
@@ -389,48 +392,7 @@
       }
     }
   }
-
-  // Extra small screens
-  @media (max-width: 360px) {
-    .header {
-      min-height: 45px;
-    }
-
-    .menu-grid-container {
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-
-      .grid-x {
-        min-height: 45px;
-      }
-    }
-
-    .mobile-menu-toggle {
-      width: 20px;
-      height: 20px;
-
-      span {
-        width: 15px;
-        height: 2px;
-
-        &::before,
-        &::after {
-          width: 15px;
-          height: 2px;
-        }
-
-        &::before {
-          top: -5px;
-        }
-
-        &::after {
-          top: 5px;
-        }
-      }
-    }
-  }
 }
-
 @include breakpoint(medium) {
   /* Desktop Navigation */
   .header {

@@ -427,7 +427,7 @@ $btn-black-color: #212121;
   }
 
   @include breakpoint(small down) {
-    gap: 1rem;
+    gap: 0.6rem;
     margin-top: 1rem;
   }
 

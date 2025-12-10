@@ -101,17 +101,19 @@ get_header(); ?>
                                                     <?php the_post_thumbnail('large'); ?>
                                                 </div>
                                             <?php } ?>
+                                            <div class="event-description">
+                                            <?php
+                                            $meta_key = 'event_description_wg';
+                                            $full_content = get_field('event_description_wg');
+                                            if ( ! empty( $full_content ) ) :
+                                                $content_parts = get_extended( $full_content );
+                                                $excerpt = $content_parts['main'];
+                                                echo apply_filters( 'the_content', $excerpt );
 
-                                            <!-- Event Description -->
-                                            <?php if ($event_description) { ?>
-                                                <div class="event-description">
-                                                    <?php echo wp_kses_post($event_description); ?>
-                                                </div>
-                                            <?php } elseif (get_the_content()) { ?>
-                                                <div class="event-description">
-                                                    <?php the_content(); ?>
-                                                </div>
-                                            <?php } ?>
+                                            else :
+                                            endif;
+                                            ?>
+                                            </div>
 
                                             <!-- Read More Button -->
                                             <div class="event-read-more-section">

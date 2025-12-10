@@ -17,15 +17,11 @@
 
 // SPA specific layout fixes
 .spa-layout {
-  // Container
-  .spa-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-
-    @include breakpoint(medium) {
-      padding: 0 1.5rem;
-    }
+  @include breakpoint(medium) {
+    padding: 0 1.5rem;
+  }
+  @include breakpoint(small down) {
+    margin-top: -6%;
   }
 
   // Grid system

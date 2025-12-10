@@ -90,6 +90,12 @@ add_filter('tiny_mce_before_init', function ($init_array) {
                 'title' => 'Underlined',
                 'inline' => 'u',
             ],
+            [
+                'title' => 'Quote format',
+                'classes' => 'event-quote-highlight',
+                'selector' => 'h1,h2,h3,h4,h5,h6,p',
+                'wrapper' => false,
+            ],
         ],
     ];
 

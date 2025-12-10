@@ -4,6 +4,143 @@
 $text-color-bl: #065481;
 $text-color-black: #011a20;
 $primarry-pink: #f75097;
+.event-main-image {
+  margin-bottom: 2.5rem;
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+  @include breakpoint(small down) {
+    margin-top: 2rem;
+  }
+}
+.titlte {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  @include breakpoint(medium down) {
+    margin-bottom: 30px;
+  }
+  @include breakpoint(small down) {
+  }
+  margin-bottom: 20px;
+}
+.event-social-right-horizontal {
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+
+  @include breakpoint(medium down) {
+    position: relative;
+    right: auto;
+    top: auto;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  @include breakpoint(small down) {
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+  }
+
+  .social-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: $primarry-pink;
+    color: $color-white;
+
+    @include breakpoint(small down) {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+
+    &.social-facebook,
+    &.social-twitter,
+    &.social-linkedin {
+      background-color: $primarry-pink;
+      color: $color-white;
+
+      &:hover {
+        background-color: darken($primarry-pink, 10%);
+      }
+    }
+  }
+}
+.event-date-right {
+  position: relative;
+  background-color: $text-color-bl;
+  color: $color-white;
+  text-align: center;
+  padding: 1rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
+  width: fit-content;
+  @include breakpoint(small down) {
+    padding-inline: 0.8rem;
+    gap: 0.3rem;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -15px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid $text-color-bl;
+  }
+
+  .date-month {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .date-day {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+
+    @include breakpoint(small down) {
+      font-size: 20px;
+    }
+  }
+
+  .date-year {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @include breakpoint(small down) {
+      font-size: 11px;
+    }
+  }
+
+  @include breakpoint(small down) {
+    padding: 0.75rem;
+    min-width: 60px;
+  }
+}
 .single-event-page {
   background-color: $color-white;
   min-height: 100vh;
@@ -74,160 +211,8 @@ $primarry-pink: #f75097;
       position: relative;
       margin-bottom: 2rem;
       width: 100%;
-
-      @include breakpoint(medium down) {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        gap: 2rem;
-      }
-
       @include breakpoint(small down) {
         margin-bottom: 1.25rem;
-      }
-
-      .event-date-right {
-        position: absolute;
-        left: -140px;
-        top: 0;
-        background-color: $text-color-bl;
-        color: $color-white;
-        text-align: center;
-        padding: 1rem;
-        min-width: 70px;
-        z-index: 10;
-
-        &:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: -15px;
-          width: 0;
-          height: 0;
-          border-left: 15px solid transparent;
-          border-right: 15px solid transparent;
-          border-top: 15px solid $text-color-bl;
-        }
-
-        .date-month {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 12px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          margin-bottom: 0.25rem;
-        }
-
-        .date-day {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: 1;
-          margin-bottom: 0.25rem;
-
-          @include breakpoint(small down) {
-            font-size: 20px;
-          }
-        }
-
-        .date-year {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 12px;
-          font-weight: 400;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-
-          @include breakpoint(small down) {
-            font-size: 11px;
-          }
-        }
-
-        @include breakpoint(large down) {
-          left: -100px;
-        }
-
-        @include breakpoint(medium down) {
-          position: relative;
-          left: auto;
-          top: auto;
-          margin: 0 auto 1rem auto;
-          display: inline-block;
-
-          &:after {
-            display: none;
-          }
-        }
-
-        @include breakpoint(small down) {
-          padding: 0.75rem;
-          min-width: 60px;
-        }
-      }
-
-      .event-main-image {
-        width: 100%;
-        position: relative;
-
-        img {
-          width: 100%;
-          height: auto;
-          display: block;
-          border-radius: 0;
-        }
-      }
-
-      .event-social-right-horizontal {
-        position: absolute;
-        right: -200px;
-        top: 0;
-        display: flex;
-        gap: 1rem;
-        z-index: 10;
-
-        @include breakpoint(medium down) {
-          position: relative;
-          right: auto;
-          top: auto;
-          justify-content: center;
-          margin-top: 1rem;
-        }
-
-        @include breakpoint(small down) {
-          gap: 0.375rem;
-          margin-top: 0.75rem;
-        }
-
-        .social-circle {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-decoration: none;
-          font-size: 14px;
-          transition: all 0.3s ease;
-          background-color: $primarry-pink;
-          color: $color-white;
-
-          @include breakpoint(small down) {
-            width: 28px;
-            height: 28px;
-            font-size: 12px;
-          }
-
-          &.social-facebook,
-          &.social-twitter,
-          &.social-linkedin {
-            background-color: $primarry-pink;
-            color: $color-white;
-
-            &:hover {
-              background-color: darken($primarry-pink, 10%);
-            }
-          }
-        }
       }
     }
 
@@ -290,25 +275,8 @@ $primarry-pink: #f75097;
         margin: 1.25rem 0 0.75rem 0;
         padding: 0.15rem 0.4rem;
       }
-
-      &:empty {
-        display: none;
-      }
-
-      p {
-        display: inline;
-        margin: 0;
-        padding: 0;
-
-        &:empty {
-          display: none;
-        }
-      }
-
-      br {
-        display: block;
-        content: '';
-        margin: 0.2rem 0;
+      + p {
+        margin-top: 1rem;
       }
     }
 

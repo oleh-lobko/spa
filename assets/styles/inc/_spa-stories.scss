@@ -19,13 +19,13 @@
   /* Simple colored block before stories */
   .stories-color-block {
     background-image: url('../../images/bar_big.webp');
-    height: 50px;
+    height: 30px;
     display: flex;
     align-items: center;
     overflow: hidden;
     position: relative;
     margin-bottom: 0;
-    width: 100%;
+    max-width: 100%;
 
     @include breakpoint(small down) {
       height: 30px;
@@ -45,6 +45,9 @@
       gap: 1rem;
       text-align: center;
       margin-bottom: 1.5rem;
+    }
+    @include breakpoint(small down) {
+      margin-top: 0rem;
     }
 
     .stories-title {
