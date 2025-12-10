@@ -1,5 +1,5 @@
 /* -----------------------------------------
-   SPA Footer Styles
+   SPA Footer
 ----------------------------------------- */
 
 .pre-footer-stripe {
@@ -19,7 +19,7 @@
 }
 .spa-footer {
   margin-top: auto;
-  background-color: #ffffff;
+  background-color: $color-white;
   padding: 3rem 0 2rem;
   display: flex;
   flex-direction: column;
@@ -210,7 +210,7 @@
 
         i {
           font-size: 14px;
-          color: #ffffff;
+          color: $primary-color;
 
           @include breakpoint(medium down) {
             font-size: 16px;
