@@ -28,7 +28,7 @@ get_header(); ?>
             the_post(); ?>
  <div class="grid-container">
     <div class="grid-x grid-margin-x">
-        <div class="cell medium-2 small-6 small-order-1">
+        <div class="cell medium-2 small-6 small-order-1 medium-order-1">
             <div class="event-date-right">
                 <?php if ($event_month) { ?>
                     <div class="date-month"><?php echo esc_html($event_month); ?></div>
@@ -41,7 +41,7 @@ get_header(); ?>
                 <?php } ?>
             </div>
         </div>
-        <div class="cell medium-8 small-order-3">
+        <div class="cell medium-8 small-order-3 medium-order-2">
             <!-- Main Content Area -->
             <div class="event-main-content">
                 <!-- Event Featured Image with Date and Social -->
@@ -170,7 +170,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-        <div class="cell medium-2 small-6 small-order-2">
+        <div class="cell medium-2 small-6 small-order-2 medium-order-3">
             <!-- Social Icons - Right Side of Image -->
             <div class="event-social-right-horizontal">
                 <?php if (get_field('social_facebook')) { ?>
