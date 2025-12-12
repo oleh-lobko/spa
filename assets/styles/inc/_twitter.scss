@@ -1,0 +1,318 @@
+/* -----------------------------------------
+   SPA Twitter
+----------------------------------------- */
+
+/* Main Twitter Widget Container */
+.widget_ctf_widget {
+  background-color: #065481;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.widget_ctf_widget .widget-title {
+  display: none;
+}
+
+.home-twitter {
+  /* Main CTF Container */
+  .ctf {
+    background-color: #065481;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: -25px;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-right: 30px solid #065481;
+      border-bottom: 30px solid transparent;
+    }
+  }
+
+  /* Header with Twitter icon and @HEALTHSPAFI */
+  .ctf .ctf-header {
+    background-color: #065481;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border: none !important;
+  }
+
+  .ctf .ctf-header .ctf-header-text,
+  .ctf .ctf-header .twitter-username {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .ctf .ctf-header .ctf-header-text::before,
+  .ctf .ctf-header .twitter-username::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .ctf .ctf-header .twitter-logo {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    flex-shrink: 0;
+  }
+  #ctf .ctf-author-avatar {
+    display: none;
+  }
+  #ctf .ctf-author-name {
+    display: none;
+  }
+  #ctf .ctf-author-screenname {
+    display: none;
+  }
+  #ctf.ctf-styles .ctf-screename-sep {
+    display: none;
+  }
+  .ctf-tweet-date {
+    color: #17c8ff !important;
+    text-transform: uppercase;
+  }
+  #ctf.ctf-styles .ctf-tweet-meta {
+    margin-bottom: 20px;
+  }
+  #ctf .ctf-header-text .ctf-header-user,
+  #ctf .ctf-header-text p {
+    margin: 0 0 !important;
+  }
+  /* Container for tweets - 3 columns layout with equal heights */
+  .ctf .ctf-tweets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background-color: #065481;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    align-items: stretch;
+    .ctf-tweet-actions {
+      display: none;
+    }
+  }
+
+  /* Individual tweet styling */
+  .ctf .ctf-tweet {
+    background-color: #065481;
+    border: none;
+    padding: 1.5rem 1rem;
+    margin: 0;
+    color: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  /* Tweet time/date header */
+  .ctf .ctf-tweet .ctf-tweet-time {
+    color: #17c8ff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  /* Tweet text content */
+  .ctf .ctf-tweet .ctf-tweet-text {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ctf .ctf-tweet .ctf-tweet-text p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .ctf .ctf-tweet .ctf-tweet-text a {
+    color: #17c8ff;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .ctf .ctf-tweet .ctf-tweet-text a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  #ctf .ctf-corner-logo {
+    display: none;
+  }
+  #ctf .ctf-header .ctf-header-follow {
+    display: none;
+  }
+  /* Hide footer elements */
+  .ctf .ctf-load-more,
+  .ctf .ctf-more,
+  .ctf .ctf-footer,
+  .ctf .ctf-show-more,
+  .ctf .ctf-no-more,
+  .ctf .ctf-end,
+  .ctf .ctf-bottom,
+  .ctf .ctf-follow-btn,
+  .ctf .ctf-header .ctf-follow-btn,
+  .ctf .ctf-header-follow,
+  .ctf .ctf-share,
+  .ctf .ctf-follow,
+  .ctf .ctf-no-more-tweets,
+  .ctf .ctf-end-message,
+  .ctf .ctf-loading-more,
+  .ctf .ctf-loader,
+  .ctf .ctf-more-wrap,
+  .ctf .ctf-credit,
+  .ctf .ctf-powered-by,
+  .ctf .ctf-attribution {
+    display: none;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .ctf .ctf-tweets {
+      grid-template-columns: 1fr;
+    }
+
+    .ctf .ctf-tweet {
+      padding: 1.25rem 1rem;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ctf .ctf-tweet {
+      padding: 1rem 0.75rem;
+    }
+
+    .ctf .ctf-tweet .ctf-tweet-text {
+      font-size: 12px;
+    }
+
+    .ctf .ctf-tweet .ctf-tweet-time {
+      font-size: 10px;
+    }
+  }
+
+  /* Force override critical styles only when necessary */
+  .widget_ctf_widget {
+    background-color: #065481;
+    border: none;
+  }
+
+  .ctf {
+    background-color: #065481;
+    color: #ffffff;
+    border: none;
+  }
+
+  .ctf .ctf-tweet {
+    background-color: #065481;
+    color: #ffffff;
+    border: none;
+  }
+
+  /* Additional fixes for white lines */
+  .ctf *,
+  .ctf *::before,
+  .ctf *::after {
+    border: none;
+    outline: none;
+  }
+
+  .ctf .ctf-tweets::before,
+  .ctf .ctf-tweets::after,
+  .ctf .ctf-tweet::before,
+  .ctf .ctf-tweet::after {
+    display: none;
+  }
+
+  #ctf .ctf-out-of-tweets {
+    display: none;
+    background: 0 0;
+    width: 100%;
+    min-height: 30px;
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  #ctf .ctf-tweet-actions a.ctf-like,
+  #ctf .ctf-tweet-actions a.ctf-reply,
+  #ctf .ctf-tweet-actions a.ctf-retweet {
+    color: #ffffff;
+  }
+
+  #ctf .ctf-header-img {
+    display: none;
+  }
+
+  #ctf .ctf-header-text .ctf-header-user,
+  #ctf .ctf-header-text p {
+    margin: 0 0 0 0px;
+  }
+  #ctf .ctf-header {
+    display: flex;
+  }
+  #ctf .ctf-header a {
+    margin-left: 3rem;
+  }
+  .ctf-item.ctf-author-afihealth.arrow-v2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 15px solid #ffffff;
+  }
+}

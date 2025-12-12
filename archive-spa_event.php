@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Events Page.
+ * Archive.
  */
 
 $featured_image = get_field('featured_image');
@@ -24,33 +24,19 @@ get_header(); ?>
                     </div>
 
                     <!-- Single Featured Events Stripe - Outside of posts loop -->
+                    <div class="cell large-10 large-push-2">
                     <div class="featured-events-stripe">
+
                         <div class="stripe-content">
                             <?php echo implode(' - ', array_fill(0, 4, __('FEATURED EVENTS', 'fwp'))); ?>
                         </div>
                     </div>
+                    </div>
 
                     <!-- Events List -->
                     <div class="events-list">
+                        <div class="cell large-10 large-push-2">
                         <?php
-                        // Модифікуємо головний запит для цієї сторінки
-                        global $wp_query;
-
-                        $original_query = $wp_query;
-
-                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                        $posts_per_page_option = get_field('post_per_page_archive', 'option');
-
-                        $wp_query = new WP_Query([
-                            'post_type' => 'spa_event',
-                            'posts_per_page' => $posts_per_page_option,
-                            'paged' => $paged,
-                            'post_status' => 'publish',
-                            'meta_key' => 'start_date',
-                            'orderby' => 'meta_value',
-                            'order' => 'ASC',
-                        ]);
-
                         if (have_posts()) {
                             while (have_posts()) {
                                 the_post();
@@ -183,14 +169,8 @@ get_header(); ?>
                                                         <div class="detail-value">
                                                             <?php
                                                             get_template_part('parts/event-attendance-display');
-                                                            $event_registration_link = get_field('event_registration_link') ?: get_field('signup_button_link');
+                                                            $event_registration_link = get_field('event_registration_link') ?: get_field('soldout_button_link');
                                                             ?>
-                                                            <?php if ($event_attendance_info) { ?>
-                                                                <?php echo nl2br(esc_html($event_attendance_info)); ?><br>
-                                                                <?php  ?>
-                                                                <br>
-                                                            <?php } ?>
-
                                                             <?php
                                                             if ($event_registration_link) {
                                                                 $button_title = $event_registration_link['title'] ?: 'BOOK TICKETS';
@@ -201,8 +181,6 @@ get_header(); ?>
                                                                    <?php if ($event_registration_link['target']) { ?>target="<?php echo esc_attr($event_registration_link['target']); ?>"<?php } ?>>
                                                                     <?php echo esc_html($button_title); ?>
                                                                 </a>
-                                                            <?php } else { ?>
-                                                                <a href="#" class="book-tickets-btn btn-available"><?php echo __('Book Tickets', 'fwp'); ?></a>
                                                             <?php } ?>
                                                         </div>
                                                     </div>
@@ -219,15 +197,11 @@ get_header(); ?>
                                 <p>No events found.</p>
                             </div>
                         <?php } ?>
+                        </div>
                     </div>
 
                     <!-- Pagination -->
                     <?php foundation_pagination(); ?>
-
-                    <?php
-                    wp_reset_postdata();
-                    $wp_query = $original_query;
-                    ?>
                 </div>
             </div>
         </div>

@@ -246,3 +246,39 @@ add_filter('page_template', function ($template) {
 
     return $template;
 });
+add_action( 'pre_get_posts', function ( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    if ( ! $query->is_post_type_archive( 'spa_event' ) ) {
+        return;
+    }
+
+    $query->set( 'meta_key', 'start_date' );
+    $query->set( 'orderby', 'meta_value' );
+    $query->set( 'order', 'ASC' );
+} );
+function highlight_parent_template_item( $classes, $item, $args, $depth ) {
+    if ( is_singular( 'event' ) &&
+        $item->object == 'page' &&
+        get_post_meta( $item->object_id, '_wp_page_template', true ) == 'templates/template-events.php' ) {
+        $classes[] = 'current-menu-item';
+    }
+
+    return $classes;
+}
+
+add_filter( 'nav_menu_css_class', 'highlight_parent_template_item', 10, 4 );
+function remove_blog_page_classe( $classes, $item ) {
+    if ( ( is_post_type_archive() || ! is_singular( 'post' ) ) && $item->type == 'post_type' && $item->object_id == get_option( 'page_for_posts' ) ) {
+        $classes = array_diff( $classes, array( 'current_page_parent' ) );
+    }
+
+    if( $item->type == 'post_type_archive' && is_singular($item->object)){
+        $classes[] = 'current_page_parent';
+    }
+
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'remove_blog_page_classe', 10, 2 );

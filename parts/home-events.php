@@ -76,7 +76,9 @@ if (isset($all_events[2])) {
         <div class="stripe-text">
             <?php
             $stripe_text = get_field('featured_events_stripe_text', 'options');
-            echo esc_html($stripe_text ?: 'FEATURED EVENTS - FEATURED EVENTS - FEATURED EVENTS - FEATURED EVENTS');
+            if ($stripe_text) {
+            echo esc_html($stripe_text);
+            }
             ?>
         </div>
     </div>

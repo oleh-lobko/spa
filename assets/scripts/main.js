@@ -185,6 +185,9 @@ $(window).on('load', function () {
   $('.event-map-container').each(function () {
     render_map($(this));
   });
+  document.querySelectorAll('.ctf-tweet-date').forEach((el) => {
+    el.textContent = formatTimeAgo(el.textContent);
+  });
 });
 
 /**
@@ -369,4 +372,44 @@ function center_map(map) {
     // fit to bounds
     map.fitBounds(bounds);
   }
+}
+function formatTimeAgo(compact) {
+  const match = String(compact)
+    .trim()
+    .match(/^(\d+)([hdwmy])$/i);
+  if (!match) return compact; // fallback if format is unknown
+
+  let value = parseInt(match[1], 10);
+  let unit = match[2].toLowerCase();
+
+  // Normalize units: 24h -> 1d, 7d -> 1w, 4w -> 1m, 12m -> 1y
+  if (unit === 'h' && value >= 24) {
+    value = Math.round(value / 24);
+    unit = 'd';
+  }
+  if (unit === 'd' && value >= 7) {
+    value = Math.round(value / 7);
+    unit = 'w';
+  }
+  if (unit === 'w' && value >= 4) {
+    value = Math.round(value / 4);
+    unit = 'm';
+  }
+  if (unit === 'm' && value >= 12) {
+    value = Math.round(value / 12);
+    unit = 'y';
+  }
+
+  const labels = {
+    h: ['hour', 'hours'],
+    d: ['day', 'days'],
+    w: ['week', 'weeks'],
+    m: ['month', 'months'],
+    y: ['year', 'years'],
+  };
+
+  const [singular, plural] = labels[unit] || ['', ''];
+  const word = value === 1 ? singular : plural;
+
+  return `About ${value} ${word} ago`;
 }

@@ -9,8 +9,11 @@ get_header(); ?>
 <main class="main-content">
     <div class="grid-container">
         <div class="grid-x grid-margin-x posts-list">
+            <div class="cell">
+                <h2 class="stories-title"><?php echo get_the_archive_title(); ?></h2>
+            </div>
             <!-- BEGIN of Blog posts -->
-            <div class="large-8 medium-8 small-12 cell">
+            <div class="cell">
                 <?php if (have_posts()) { ?>
                     <?php while (have_posts()) {
                         the_post(); ?>
@@ -22,12 +25,6 @@ get_header(); ?>
                 <!-- END of pagination -->
             </div>
             <!-- END of Blog posts -->
-
-            <!-- BEGIN of sidebar -->
-            <div class="large-4 medium-4 small-12 cell sidebar">
-                <?php get_sidebar('right'); ?>
-            </div>
-            <!-- END of sidebar -->
         </div>
     </div>
 </main>

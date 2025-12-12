@@ -18,7 +18,6 @@ $pagination-pr: #2e5c73;
     text-align: center;
     position: relative;
     overflow: hidden;
-    max-width: 800px;
 
     .stripe-content {
       font-family: 'Open Sans', sans-serif;
@@ -138,7 +137,6 @@ $pagination-pr: #2e5c73;
     }
   }
   .events-list {
-    max-width: 800px;
     margin: 0 auto;
     position: relative;
 
@@ -334,16 +332,16 @@ $pagination-pr: #2e5c73;
 
                   &:hover {
                     color: #c71585;
-                    box-shadow: 0 3px 6px rgba(247, 80, 151, 0.3);
+                    //box-shadow: 0 3px 6px rgba(247, 80, 151, 0.3);
                   }
                 }
 
                 .btn-sold-out {
                   color: $ddark-blue;
+                  cursor: default;
+                  pointer-events: none;
 
                   &:hover {
-                    color: #00008b;
-                    box-shadow: 0 3px 6px rgba(247, 80, 151, 0.3);
                   }
                 }
               }
@@ -406,11 +404,6 @@ $pagination-pr: #2e5c73;
       max-width: 700px;
       padding: 0 1rem;
     }
-
-    .featured-events-stripe {
-      max-width: 700px;
-    }
-
     .events-pagination {
       max-width: 900px;
     }

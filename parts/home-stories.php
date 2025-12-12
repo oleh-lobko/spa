@@ -2,7 +2,7 @@
 <?php
 $stories_query = new WP_Query([
     'post_type' => 'post',
-    'posts_per_page' => get_option('posts_per_page'),
+    'posts_per_page' => get_field('post_per_page_stories', 'option'),
     'post_status' => 'publish',
 ]);
 
@@ -33,6 +33,7 @@ if ($stories_query->have_posts()) { ?>
 
                 <div class="cell">
                     <div class="stories-grid">
+                        <?php if($stories_query) {?>
                         <?php while ($stories_query->have_posts()) {
                             $stories_query->the_post(); ?>
                             <div class="story-item">
@@ -103,6 +104,7 @@ if ($stories_query->have_posts()) { ?>
                                     </div>
                                 </div>
                             </div>
+                        <?php } ?>
                         <?php } ?>
                     </div>
                 </div>

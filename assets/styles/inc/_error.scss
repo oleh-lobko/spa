@@ -1,0 +1,11 @@
+/* -----------------------------------------
+   404 Error
+----------------------------------------- */
+.not-found .label {
+  background-color: transparent !important;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: #00acc1 !important;
+  }
+}

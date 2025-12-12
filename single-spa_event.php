@@ -66,7 +66,6 @@ get_header(); ?>
                     <?php
                     $event_description_wg = get_field('event_description_wg');
                     if ($event_description_wg) { ?>
-                        <div class="cell large-8">
                             <div class="hero-section">
                                 <div class="hero-content">
                                     <?php echo $event_description_wg; ?>
@@ -157,7 +156,7 @@ get_header(); ?>
                     </div>
 
                     <!-- Sign Up Button -->
-                    <?php $signup_button = get_field('signup_button_link'); ?>
+                    <?php $signup_button = get_field('sign_up_button'); ?>
                     <?php if ($signup_button) { ?>
                         <div class="signup-button-container">
                             <a href="<?php echo esc_url($signup_button['url']); ?>"
@@ -169,7 +168,6 @@ get_header(); ?>
                     <?php } ?>
                 </div>
             </div>
-        </div>
         <div class="cell medium-2 small-6 small-order-2 medium-order-3">
             <!-- Social Icons - Right Side of Image -->
             <div class="event-social-right-horizontal">
@@ -199,7 +197,7 @@ get_header(); ?>
     </div>
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
-        <div class="cell large-12">
+        <div class="cell large-10 large-push-2">
             <!-- Supporters Title Section - After Sign Up Button -->
             <?php
             $supporter_logos = get_field('supporter_logos_repeater');
@@ -211,10 +209,10 @@ get_header(); ?>
                     </h3>
                 </div>
             <?php } ?>
+        </div>
         <!-- Event Supporters - Full Width Outside Content -->
+            <div class="cell large-12">
         <?php if ($supporter_logos) { ?>
-            <div class="event-supporters-full-width">
-                <div class="supporters-container">
                     <div class="supporters-logos">
                         <?php foreach ($supporter_logos as $supporter) { ?>
                             <div class="supporter-logo">
@@ -233,8 +231,6 @@ get_header(); ?>
                             </div>
                         <?php } ?>
                     </div>
-                </div>
-            </div>
         <?php } ?>
         </div>
     </div>

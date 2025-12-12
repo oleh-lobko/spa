@@ -4,6 +4,50 @@
 $text-color-bl: #065481;
 $text-color-black: #011a20;
 $primarry-pink: #f75097;
+$link-color: #00bcd4;
+.supporters-logos {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  @include breakpoint(medium down) {
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  @include breakpoint(small down) {
+    gap: 1.5rem;
+  }
+
+  .supporter-logo {
+    img {
+      max-height: 90px;
+      max-width: 190px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+
+      @include breakpoint(medium down) {
+        max-height: 70px;
+        max-width: 180px;
+      }
+
+      @include breakpoint(small down) {
+        max-height: 60px;
+        max-width: 150px;
+      }
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
 .event-main-image {
   margin-bottom: 2.5rem;
   img {
@@ -24,7 +68,6 @@ $primarry-pink: #f75097;
   }
   @include breakpoint(small down) {
   }
-  margin-bottom: 20px;
 }
 .event-social-right-horizontal {
   display: flex;
@@ -172,38 +215,38 @@ $primarry-pink: #f75097;
       padding: 1.5rem 0.75rem;
     }
   }
+  // Event Title
+  .event-main-title {
+    margin-top: 73px;
+    font-size: 40px;
+    font-weight: 300;
+    color: $text-color-black;
+    letter-spacing: -1px;
+    text-align: center;
+    line-height: 48px;
+    font-family: 'Open Sans', sans-serif;
 
+    @include breakpoint(medium down) {
+      margin-top: 43px;
+      font-size: 32px;
+      margin-bottom: 1.2rem;
+    }
+
+    @include breakpoint(small down) {
+      margin-top: 23px;
+      font-size: 28px;
+      margin-bottom: 1rem;
+      padding: 0 0.5rem;
+    }
+  }
   // Main Content Area
   .event-main-content {
-    padding: 0 2rem;
     background-color: $color-white;
     max-width: 100%;
     position: relative;
 
     @include breakpoint(medium down) {
       padding: 0;
-    }
-
-    // Event Title
-    .event-main-title {
-      font-size: 40px;
-      font-weight: 300;
-      color: $text-color-black;
-      text-align: center;
-      margin: 0 0 2rem 0;
-      line-height: 1.2;
-      font-family: 'Open Sans', sans-serif;
-
-      @include breakpoint(medium down) {
-        font-size: 32px;
-        margin-bottom: 1.5rem;
-      }
-
-      @include breakpoint(small down) {
-        font-size: 28px;
-        margin-bottom: 1.25rem;
-        padding: 0 0.5rem;
-      }
     }
 
     // Image and Date Container - FIXED LAYOUT
@@ -483,7 +526,10 @@ $primarry-pink: #f75097;
     transition: all 0.3s ease;
     font-family: 'Open Sans', sans-serif;
     border: 1px solid $text-color-bl;
-
+    &:hover {
+      color: $link-color;
+      border-color: $link-color;
+    }
     @include breakpoint(small down) {
       padding: 0.75rem 2rem;
       font-size: 11px;
@@ -522,86 +568,6 @@ $primarry-pink: #f75097;
     }
   }
 }
-
-.event-supporters-full-width {
-  background-color: $color-white;
-  padding: 3rem 0 4rem 0;
-  margin-top: 1rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-
-  @include breakpoint(medium down) {
-    padding: 2rem 0 3rem 0;
-  }
-
-  @include breakpoint(small down) {
-    padding: 1.5rem 0 2rem 0;
-  }
-
-  .supporters-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    text-align: center;
-
-    @include breakpoint(medium down) {
-      padding: 0 1.5rem;
-    }
-
-    @include breakpoint(small down) {
-      padding: 0 1rem;
-    }
-
-    .supporters-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5rem;
-      flex-wrap: wrap;
-
-      @include breakpoint(medium down) {
-        gap: 2rem;
-        justify-content: center;
-      }
-
-      @include breakpoint(small down) {
-        gap: 1.5rem;
-      }
-
-      .supporter-logo {
-        img {
-          max-height: 90px;
-          max-width: 220px;
-          width: auto;
-          height: auto;
-          object-fit: contain;
-          opacity: 0.9;
-          transition: opacity 0.3s ease;
-
-          @include breakpoint(medium down) {
-            max-height: 70px;
-            max-width: 180px;
-          }
-
-          @include breakpoint(small down) {
-            max-height: 60px;
-            max-width: 150px;
-          }
-
-          &:hover {
-            opacity: 1;
-            transform: scale(1.05);
-          }
-        }
-      }
-    }
-  }
-}
-
 .no-event-found {
   text-align: center;
   padding: 3rem 2rem;

@@ -1,7 +1,15 @@
 /* -----------------------------------------
    Header Styles for SPA Design - Updated According to Mockup
 ----------------------------------------- */
-
+#menu-header-menu .menu-item.current-menu-item a:after {
+  /* ЦЕ ПРИКЛАД: Вставте сюди знайдені стилі (content, display, height, background) */
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #f7f7f7; /* Або той колір, який ви бачите на лінії STORIES */
+  margin-top: 5px; /* Можливо, потрібно відрегулювати відступ */
+}
 .header {
   background: $header-bg;
   position: relative;

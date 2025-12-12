@@ -153,14 +153,3 @@ register_activation_hook(__FILE__, 'spa_events_rewrite_flush');
 
 // Modify main query for spa_event archive to show only upcoming events
 // Disable archive for spa_event - redirect to Events page template
-add_action('template_redirect', function () {
-    if (is_post_type_archive('spa_event')) {
-        // Check if Events page exists before redirecting
-        $events_page = get_page_by_path('events');
-        if ($events_page) {
-            wp_redirect(get_permalink($events_page));
-
-            exit;
-        }
-    }
-});
