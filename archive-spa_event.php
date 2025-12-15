@@ -24,7 +24,7 @@ get_header(); ?>
                     </div>
 
                     <!-- Single Featured Events Stripe - Outside of posts loop -->
-                    <div class="cell large-10 large-push-2">
+                    <div class="cell large-8 large-push-2">
                     <div class="featured-events-stripe">
 
                         <div class="stripe-content">
@@ -35,7 +35,7 @@ get_header(); ?>
 
                     <!-- Events List -->
                     <div class="events-list">
-                        <div class="cell large-10 large-push-2">
+                        <div class="cell large-8 large-push-2">
                         <?php
                         if (have_posts()) {
                             while (have_posts()) {
@@ -49,7 +49,6 @@ get_header(); ?>
                                 $featured_image = get_field('featured_image');
                                 $start_date = get_field('start_date');
                                 $end_date = get_field('end_date');
-
                                 // Extract start date components for blue date block
                                 if ($start_date) {
                                     $start_timestamp = strtotime($start_date);
@@ -78,13 +77,17 @@ get_header(); ?>
                                             <h2 class="event-title"><?php the_title(); ?></h2>
 
                                             <!-- Event Featured Image -->
-                                            <?php if ($featured_image) { ?>
+
+                                            <?php  if ($featured_image) { ?>
                                                 <div class="event-image">
                                                     <img src="<?php echo esc_url($featured_image['url']); ?>" alt="<?php echo esc_attr($featured_image['alt']); ?>">
                                                 </div>
+
                                             <?php } elseif (has_post_thumbnail()) { ?>
                                                 <div class="event-image">
+                                                    <a href="<?php echo get_permalink(); ?>">
                                                     <?php the_post_thumbnail('large'); ?>
+                                                    </a>
                                                 </div>
                                             <?php } ?>
                                             <div class="event-description">
@@ -173,7 +176,7 @@ get_header(); ?>
                                                             ?>
                                                             <?php
                                                             if ($event_registration_link) {
-                                                                $button_title = $event_registration_link['title'] ?: 'BOOK TICKETS';
+                                                                $button_title = $event_registration_link['title'];
                                                                 $button_class = ('sold out' === strtolower(trim($button_title))) ? 'btn-sold-out' : 'btn-available';
                                                                 ?>
                                                                 <a href="<?php echo esc_url($event_registration_link['url']); ?>"
@@ -194,7 +197,7 @@ get_header(); ?>
                         } else {
                             ?>
                             <div class="no-events">
-                                <p>No events found.</p>
+                                <p><?php _e('No events found', 'fwp'); ?></p>
                             </div>
                         <?php } ?>
                         </div>

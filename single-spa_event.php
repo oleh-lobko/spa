@@ -200,8 +200,8 @@ get_header(); ?>
         <div class="cell large-10 large-push-2">
             <!-- Supporters Title Section - After Sign Up Button -->
             <?php
-            $supporter_logos = get_field('supporter_logos_repeater');
-            $supporters_title = get_field('supporters_title');
+            $supporter_logos = get_the_terms(get_the_ID(), 'spa_event_sponsor');
+            $supporters_title = get_field('supporters_title','option');
             if ($supporter_logos) { ?>
                 <div class="supporters-title-section">
                     <h3 class="supporters-heading-main">
@@ -210,28 +210,31 @@ get_header(); ?>
                 </div>
             <?php } ?>
         </div>
-        <!-- Event Supporters - Full Width Outside Content -->
+            <!-- Event Supporters - Full Width Outside Content -->
             <div class="cell large-12">
-        <?php if ($supporter_logos) { ?>
+                <?php if (!empty($supporter_logos) && !is_wp_error($supporter_logos)) { ?>
                     <div class="supporters-logos">
                         <?php foreach ($supporter_logos as $supporter) { ?>
+                            <?php
+                            $image = get_field('image', 'spa_event_sponsor_' . $supporter->term_id);
+                            $url = get_field('url', 'spa_event_sponsor_' . $supporter->term_id);
+                            ?>
                             <div class="supporter-logo">
-                                <?php if ($supporter['url']) { ?>
-                                <a href="<?php echo esc_url($supporter['url']); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
-                                    <?php } ?>
-
-                                    <img src="<?php echo esc_url($supporter['logo']['url']); ?>"
-                                         alt="<?php echo esc_attr($supporter['name']); ?>">
-
-                                    <?php if ($supporter['url']) { ?>
-                                </a>
-                            <?php } ?>
+                                <?php if($url) { ?>
+                                    <a href="<?php echo esc_url($url); ?>"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        <img src="<?php echo esc_url($image['url']); ?>"
+                                             alt="<?php echo esc_attr($supporter->name); ?>">
+                                    </a>
+                                <?php } else { ?>
+                                    <img src="<?php echo esc_url($image['url']); ?>"
+                                         alt="<?php echo esc_attr($supporter->name); ?>">
+                                <?php } ?>
                             </div>
                         <?php } ?>
                     </div>
-        <?php } ?>
+                <?php } ?>
         </div>
     </div>
 

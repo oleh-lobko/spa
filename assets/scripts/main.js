@@ -188,6 +188,30 @@ $(window).on('load', function () {
   document.querySelectorAll('.ctf-tweet-date').forEach((el) => {
     el.textContent = formatTimeAgo(el.textContent);
   });
+
+  const menuItems = document.querySelectorAll('.menu-item.has-dropdown');
+  if (menuItems) {
+    menuItems.forEach((menuItem) => {
+      const submenuToggle = document.createElement('button');
+      submenuToggle.classList.add('submenu-toggle');
+      menuItem.appendChild(submenuToggle);
+
+      submenuToggle.addEventListener('click', () => {
+        document
+          .querySelector('.submenu')
+          .classList.toggle('js-dropdown-active');
+      });
+
+      menuItem.addEventListener('mouseenter', () => {
+        document.querySelector('.submenu').classList.add('js-dropdown-active');
+      });
+      menuItem.addEventListener('mouseleave', () => {
+        document
+          .querySelector('.submenu')
+          .classList.remove('js-dropdown-active');
+      });
+    });
+  }
 });
 
 /**

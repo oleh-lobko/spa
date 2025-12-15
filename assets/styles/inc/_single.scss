@@ -1,13 +1,7 @@
 /* -----------------------------------------
    SPA Single
 ----------------------------------------- */
-//Variables
-$meta-category-bg: #00bcd4;
-$single-post-gr: #424242;
-$primary-blue: #1e88e5;
-$primary-blue-dr: #0d47a1;
-$light-blue: #f8f9fa;
-
+// Main container for the single post page
 .single-post-page {
   padding: 3rem 0;
   background-color: $color-white;
@@ -19,7 +13,7 @@ $light-blue: #f8f9fa;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
     margin-bottom: 2rem;
   }
-
+  // Meta information block (date, author, category)
   .single-post-header {
     padding: 2rem 2rem 1rem;
     background: linear-gradient(
@@ -90,7 +84,7 @@ $light-blue: #f8f9fa;
         letter-spacing: 1px;
       }
     }
-
+    // Main Post Title
     .single-post-title {
       font-size: 2.5rem;
       font-weight: 700;
@@ -196,7 +190,7 @@ $light-blue: #f8f9fa;
         }
       }
     }
-
+    // Blockquote styling (pull quotes)
     blockquote {
       margin: 2rem 0;
       padding: 1.5rem;

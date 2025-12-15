@@ -1,15 +1,15 @@
 /* -----------------------------------------
-   Header Styles for SPA Design - Updated According to Mockup
+   Header Styles
 ----------------------------------------- */
 #menu-header-menu .menu-item.current-menu-item a:after {
-  /* ЦЕ ПРИКЛАД: Вставте сюди знайдені стилі (content, display, height, background) */
   content: '';
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #f7f7f7; /* Або той колір, який ви бачите на лінії STORIES */
-  margin-top: 5px; /* Можливо, потрібно відрегулювати відступ */
+  background-color: #f7f7f7;
+  margin-top: 5px;
 }
+// Main Header container styling
 .header {
   background: $header-bg;
   position: relative;
@@ -18,13 +18,16 @@
   min-height: 60px;
   display: flex;
   align-items: center;
+
   .grid-header {
     width: 100%;
   }
+
   @include breakpoint(small down) {
     min-height: 50px;
     .grid-container {
       margin-right: 0;
+
       body:not(.page-template-template-home) & {
         margin-right: auto;
         margin-left: auto;
@@ -54,6 +57,7 @@
     }
   }
 }
+// Styling for the Logo used in the Hero section (larger size)
 .logo-hero {
   max-width: 420px;
   @include breakpoint(medium down) {
@@ -91,7 +95,7 @@
         font-weight: 700;
         text-transform: none;
         letter-spacing: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
 
         @include breakpoint(medium down) {
           font-size: 1.75rem;
@@ -131,7 +135,7 @@
           font-size: 1.5rem;
         }
       }
-
+      // Special styling for SPA (Single Page App) text component within logo
       .spa-subtitle {
         color: $color-white;
         font-size: 0.875rem;
@@ -152,19 +156,22 @@
 .menu-container {
   display: flex;
   align-items: center;
+
   .menu-header-container {
     width: 100%;
   }
 }
-
+// Container for Logo and Navigation/Utility (main header wrapper)
 .header-content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   gap: rem-calc(90);
+
   .page-template-template-home & {
     justify-content: center;
+
     @include breakpoint(small down) {
       justify-content: flex-end;
     }
@@ -172,6 +179,7 @@
 
   body:not(.page-template-template-home) & {
     justify-content: flex-start;
+
     @include breakpoint(small down) {
       justify-content: flex-end;
     }
@@ -202,6 +210,7 @@
       justify-content: space-between;
     }
   }
+
   .logo {
     margin: 0 0 15px 0;
     display: none;
@@ -210,7 +219,6 @@
     body:not(.page-template-template-home) & {
       margin-right: auto;
       margin-bottom: 0;
-      display: block !important;
       display: flex !important;
       align-items: center;
       flex-shrink: 0;
@@ -243,8 +251,7 @@
       }
     }
   }
-
-  // Кастомний мобільний бургер
+  //Hamburger menu
   .mobile-menu-toggle {
     background: transparent;
     border: none;
@@ -361,6 +368,7 @@
     }
 
     li {
+      position: relative;
       width: 100%;
 
       > a {
@@ -368,7 +376,7 @@
         color: $color-white;
         line-height: 48px;
         padding: 0 1rem;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -398,9 +406,50 @@
       &:last-child > a {
         border-bottom: none;
       }
+
+      &.has-dropdown {
+        a {
+          pointer-events: none;
+          position: relative;
+          padding-right: rem-calc(49);
+        }
+      }
+    }
+
+    .submenu-toggle {
+      padding: 0;
+      position: absolute;
+      width: rem-calc(49);
+      height: rem-calc(49);
+      top: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    .submenu {
+      height: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: all 0.3s ease;
+
+      &.js-dropdown-active {
+        height: auto;
+        transform: scaleY(1);
+      }
+
+      a {
+        padding-left: #{get-side($accordionmenu-padding, 'left') * 1.65};
+      }
+
+      .submenu {
+        a {
+          padding-left: #{get-side($accordionmenu-padding, 'left') * 2.3};
+        }
+      }
     }
   }
 }
+
 @include breakpoint(medium) {
   /* Desktop Navigation */
   .header {
@@ -425,6 +474,7 @@
     flex-wrap: nowrap;
 
     li {
+      position: relative;
       margin: 0;
       flex: 0 0 auto;
 
@@ -432,7 +482,7 @@
         color: $spa-text;
         line-height: 1;
         padding: 12px 20px;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -485,21 +535,21 @@
             padding-right: 1.5rem;
           }
 
-          &::after {
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.6rem;
-            transition: transform 0.3s ease-in-out;
-
-            @include breakpoint(medium only) {
-              right: 0.5rem;
-            }
-          }
+          //&::after {
+          //  content: '\f107';
+          //  font-family: 'Font Awesome 6 Free';
+          //  font-weight: 900;
+          //  position: absolute;
+          //  right: 0.75rem;
+          //  top: 50%;
+          //  transform: translateY(-50%);
+          //  font-size: 0.6rem;
+          //  transition: transform 0.3s ease-in-out;
+          //
+          //  @include breakpoint(medium only) {
+          //    right: 0.5rem;
+          //  }
+          //}
         }
 
         &.is-active > a {
@@ -509,6 +559,49 @@
             transform: translateY(-50%) rotate(180deg);
           }
         }
+      }
+    }
+    .submenu-toggle:after {
+      margin-left: 1.5rem;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 11;
+
+      &.js-dropdown-active {
+        display: block;
+      }
+
+      li {
+        > a {
+          /* Regular link in dropdown */
+          background: $white;
+          color: $primary-color;
+          line-height: 30px;
+
+          &:hover {
+            /* Dropdown link on hover */
+            background: lighten($primary-color, 10);
+            color: $white;
+          }
+        }
+
+        &.current-menu-item,
+        &.current_page_ancestor,
+        &.current_page_parent {
+          > a {
+            background: lighten($primary-color, 10);
+            color: $white;
+          }
+        }
+      }
+
+      .submenu {
+        /* Styles for 2nd level dropdown menu */
       }
     }
   }

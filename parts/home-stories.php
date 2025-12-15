@@ -19,7 +19,14 @@ if ($stories_query->have_posts()) { ?>
                 </div>
                 <div class="cell">
                     <div class="stories-header">
-                        <h2 class="stories-title">Stories</h2>
+                        <?php
+                        $story_content = get_field('story_section');
+
+                        if ( $story_content ) : ?>
+                            <h2 class="stories-title"><?php echo $story_content; ?></h2>
+                        <?php else : ?>
+                            <h2 class="stories-title"><?php _e('Stories', 'fwp'); ?></h2>
+                        <?php endif; ?>
 
                         <?php
                         $story_link = get_field('story_link');

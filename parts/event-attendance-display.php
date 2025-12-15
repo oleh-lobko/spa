@@ -21,5 +21,7 @@ $event_registration_link = get_field('event_registration_link', $post_id) ?: get
 <?php if ($attendance_text) { ?>
     <div class="attendance-text"><?php echo nl2br(esc_html($attendance_text)); ?></div>
 <?php } else { ?>
-    <div class="attendance-text">The event is free, but seating is limited to 50.</div>
+    <div class="attendance-text">
+<!--        --><?php //_e('The event is free, but seating is limited to 50.', 'fwp'); ?>
+    </div>
 <?php } ?>

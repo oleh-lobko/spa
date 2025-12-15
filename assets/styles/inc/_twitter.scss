@@ -14,7 +14,10 @@
 .widget_ctf_widget .widget-title {
   display: none;
 }
-
+.ctf-tweet-date {
+  cursor: default;
+  pointer-events: none;
+}
 .home-twitter {
   /* Main CTF Container */
   .ctf {
@@ -24,7 +27,7 @@
     margin: 0;
     border: none;
     border-radius: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     width: 100%;
     max-width: 100%;
     position: relative;
@@ -63,7 +66,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
   }
 
   .ctf .ctf-header .ctf-header-text::before,
@@ -146,7 +149,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.75rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     display: block;
     flex-shrink: 0;
   }
@@ -157,7 +160,7 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     flex: 1;
     margin: 0;
     padding: 0;
@@ -168,15 +171,23 @@
     margin: 0;
     font-size: 13px;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
   }
 
   .ctf .ctf-tweet .ctf-tweet-text a {
     color: #17c8ff;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
   }
-
+  .ctf-header-user {
+    &::before {
+      content: '@';
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      margin-right: -4px;
+    }
+  }
   .ctf .ctf-tweet .ctf-tweet-text a:hover {
     color: #ffffff;
     text-decoration: underline;

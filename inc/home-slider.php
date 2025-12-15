@@ -63,7 +63,7 @@ add_action('add_meta_boxes', function () {
                         style="width: 100%;"
                     />
                 </div>
-                <div class="field-wrap" style=" width: 30%">
+                <div class="field-wrap" style="width: 30%">
                     <p class="label-wrapper">
                         <label for="video_aspect_ratio" style="display: block;">
                             <b><?php _e('Video aspect ratio', 'fwp'); ?></b>
@@ -204,7 +204,7 @@ add_shortcode('slider', function () {
                 $homeSlider.slick({
                     cssEase: 'ease',
                     fade: true,  // Cause trouble if used slidesToShow: more than one
-                    arrows: false,
+                    // arrows: false,
                     dots: true,
                     infinite: true,
                     speed: 500,
@@ -259,9 +259,9 @@ add_shortcode('slider', function () {
                                 <?php } ?>
                             </div>
                         <?php } ?>
-                               <div class="hero-slider-logo">
-                            <div class="grid-container">
-                                <div class="grid-x grid-margin-x">
+
+                        <div class="grid-container home-slide__caption">
+                            <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <?php
                                     $logo_array = get_field('logo_slider', 'option');
@@ -270,15 +270,13 @@ add_shortcode('slider', function () {
                                         $alt = $logo_array['alt'];
                                         ?>
                                         <img class="logo-hero"
-                                            src="<?php echo esc_url($url); ?>"
-                                            alt="<?php echo esc_attr($alt); ?>"
+                                             src="<?php echo esc_url($url); ?>"
+                                             alt="<?php echo esc_attr($alt); ?>"
                                         />
                                     <?php endif; ?>
                                 </div>
-                                </div>
                             </div>
-                               </div>
-                    </div>
+                        </div>
                     </div>
 
                 </div>

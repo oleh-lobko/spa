@@ -1,12 +1,6 @@
 /* -----------------------------------------
    SPA Events Page
 ----------------------------------------- */
-//Variables
-$light-blue: #17c8ff;
-$dark-blue: #065481;
-$ddark-blue: #011a20;
-$primary-pink: #f75097;
-$pagination-pr: #2e5c73;
 .events-page {
   padding: 3rem 0;
   background-color: $color-white;
@@ -20,7 +14,7 @@ $pagination-pr: #2e5c73;
     overflow: hidden;
 
     .stripe-content {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-weight: 600;
       font-size: 14px;
       text-transform: uppercase;
@@ -35,7 +29,7 @@ $pagination-pr: #2e5c73;
     text-align: left;
 
     .events-page-title {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-weight: 800;
       font-size: 62px;
       color: $light-blue;
@@ -77,7 +71,7 @@ $pagination-pr: #2e5c73;
         justify-content: center;
         min-width: 32px;
         height: 32px;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 14px;
         color: $pagination-pr;
         background: none;
@@ -180,7 +174,7 @@ $pagination-pr: #2e5c73;
         }
 
         .event-month {
-          font-family: 'Open Sans', sans-serif;
+          font-family: 'Open Sans';
           font-size: 12px;
           font-weight: 700;
           text-transform: uppercase;
@@ -189,7 +183,7 @@ $pagination-pr: #2e5c73;
         }
 
         .event-day {
-          font-family: 'Open Sans', sans-serif;
+          font-family: 'Open Sans';
           font-size: 24px;
           font-weight: 400;
           line-height: 1;
@@ -218,7 +212,7 @@ $pagination-pr: #2e5c73;
         max-width: 100%;
 
         .event-title {
-          font-family: 'Open Sans', sans-serif;
+          font-family: 'Open Sans';
           font-weight: 300;
           font-size: 40px;
           color: $ddark-blue;
@@ -247,7 +241,7 @@ $pagination-pr: #2e5c73;
 
         .event-description {
           margin-bottom: 1.5rem;
-          font-family: 'Open Sans', sans-serif;
+          font-family: 'Open Sans';
           font-weight: 400;
           font-size: 16px;
           color: $ddark-blue;
@@ -265,7 +259,7 @@ $pagination-pr: #2e5c73;
           .event-read-more-btn {
             display: inline-block;
             color: $primary-pink;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Open Sans';
             font-weight: 600;
             font-size: 12px;
             text-decoration: none;
@@ -300,25 +294,27 @@ $pagination-pr: #2e5c73;
             }
 
             .event-detail-item {
+              display: flex;
+              flex-direction: column;
+              gap: rem-calc(10px);
               .detail-label {
-                font-family: 'Open Sans', sans-serif;
+                font-family: 'Open Sans';
                 font-weight: 800; // Extrabold
                 font-size: 14px;
                 color: $dark-blue;
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                margin-bottom: 0.75rem;
               }
 
               .detail-value {
-                font-family: 'Open Sans', sans-serif;
+                font-family: 'Open Sans';
                 font-weight: 400; // Regular
                 font-size: 14px;
                 color: $ddark-blue;
                 line-height: 1.5;
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
+                gap: rem-calc(10px);
 
                 .book-tickets-btn {
                   display: inline-block;

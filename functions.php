@@ -72,7 +72,6 @@ array_map(function ($filename) {
     'tiny-mce-customizations',
     'posttypes',
     'rest',
-    'spa-events-cpt',
     //    'gutenberg-support',
     //    'woo-customizations',
     //    'divi-support',

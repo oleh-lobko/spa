@@ -57,7 +57,7 @@ if (isset($all_events[2])) {
                             <a href="<?php echo esc_url($events_section_link['url']); ?>"
                                class="spa-events-see-all"
                                <?php if ($events_section_link['target']) { ?>target="<?php echo esc_attr($events_section_link['target']); ?>"<?php } ?>>
-                                <?php echo esc_html($events_section_link['title'] ?: 'SEE ALL'); ?>
+                                <?php echo esc_html($events_section_link['title']); ?>
                             </a>
                         <?php } ?>
                     </div>
@@ -133,7 +133,7 @@ if (isset($all_events[2])) {
                     $event_location = get_field('event_location', $featured_event->ID);
                     $event_logo = get_field('event_logo', $featured_event->ID);
                     $home_description = get_field('home_description', $featured_event->ID);
-                    $home_link = get_field('home_link', $featured_event->ID);
+                    $home_link = get_field('event_link', $featured_event->ID);
                     ?>
 
                     <?php if ($event_location) { ?>
@@ -157,11 +157,11 @@ if (isset($all_events[2])) {
                         <a href="<?php echo esc_url($home_link['url']); ?>"
                            class="event-read-more"
                            <?php if ($home_link['target']) { ?>target="<?php echo esc_attr($home_link['target']); ?>"<?php } ?>>
-                            <?php echo esc_html($home_link['title'] ?: 'READ MORE'); ?>
+                            <?php echo esc_html($home_link['title']); ?>
                         </a>
                     <?php } else { ?>
                         <a href="<?php echo get_permalink($featured_event->ID); ?>" class="event-read-more">
-                            READ MORE
+                            <?php _e('READ MORE', 'fwp'); ?>
                         </a>
                     <?php } ?>
                 </div>
@@ -200,13 +200,11 @@ if (isset($all_events[2])) {
                             $event_location = get_field('event_location', $event->ID);
                             $event_subtitle = get_field('event_subtitle', $event->ID);
                             $home_decripthion = get_field('home_decripthion', $event->ID);
-                            $home_link = get_field('home_link', $event->ID);
+                            $home_link = get_field('event_link', $event->ID);
                             ?>
 
                             <?php if ($event_location) { ?>
                                 <div class="event-location"><?php echo esc_html($event_location); ?></div>
-                            <?php } else { ?>
-                                <div class="event-location">Tampere</div>
                             <?php } ?>
 
                             <h4 class="event-title"><?php echo esc_html($event->post_title); ?></h4>
@@ -229,7 +227,7 @@ if (isset($all_events[2])) {
                                 <a href="<?php echo esc_url($home_link['url']); ?>"
                                    class="event-read-more"
                                    <?php if ($home_link['target']) { ?>target="<?php echo esc_attr($home_link['target']); ?>"<?php } ?>>
-                                    <?php echo esc_html($home_link['title'] ?: 'READ MORE'); ?>
+                                    <?php echo esc_html($home_link['title']); ?>
                                 </a>
                             <?php } else { ?>
                                 <a href="<?php echo get_permalink($event->ID); ?>" class="event-read-more">

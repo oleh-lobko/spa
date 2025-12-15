@@ -1,10 +1,7 @@
 /* -----------------------------------------
-   SPA Events Section - Updated Styling
+   SPA Events
 ----------------------------------------- */
-$stripe-text: rgb(137, 214, 251);
-$stripe-bg-color: #17c8ff;
-$background-color: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
-$btn-black-color: #212121;
+// Main wrapper for the entire events section
 .spa-layout .spa-events-section {
   background: $background-color;
   position: relative;
@@ -98,7 +95,7 @@ $btn-black-color: #212121;
 
   .stripe-text {
     color: $stripe-text;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     font-size: 0.875rem;
     text-transform: uppercase;
     line-height: 30px;
@@ -199,7 +196,10 @@ $btn-black-color: #212121;
 
 .featured-event {
   background-color: transparent;
-  border-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   padding: 0;
   margin-bottom: 2rem;
   display: flex;
@@ -209,7 +209,7 @@ $btn-black-color: #212121;
   min-height: 200px;
   overflow: hidden;
 
-  @include breakpoint(small down) {
+  @include breakpoint(medium down) {
     flex-direction: column;
     gap: 1rem;
     min-height: auto;
@@ -258,7 +258,7 @@ $btn-black-color: #212121;
   }
 
   .event-month {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     font-size: 12px;
     font-weight: 700; // Bold
     text-transform: uppercase;
@@ -271,7 +271,7 @@ $btn-black-color: #212121;
   }
 
   .event-day {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
     font-size: 24px;
     font-weight: 400; // Regular
     line-height: 1;
@@ -286,11 +286,10 @@ $btn-black-color: #212121;
     min-width: 0;
 
     .event-location {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-size: 16px;
       font-weight: 400; // Regular
       color: #012d38;
-      text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 0.5rem;
 
@@ -304,11 +303,10 @@ $btn-black-color: #212121;
     }
 
     .event-title {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-size: 28px;
       font-weight: 800; // Extrabold
       color: #065481;
-      margin-bottom: 1rem;
       line-height: 1.2;
 
       @include breakpoint(medium down) {
@@ -323,7 +321,7 @@ $btn-black-color: #212121;
     }
 
     .event-description {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-size: 14px;
       font-weight: 400; // Regular
       line-height: 1.75;
@@ -331,6 +329,8 @@ $btn-black-color: #212121;
       margin-bottom: 1rem;
       word-wrap: break-word;
       overflow-wrap: break-word;
+      padding-top: 20px;
+      padding-bottom: 20px;
 
       @include breakpoint(medium down) {
         text-align: center;
@@ -344,7 +344,7 @@ $btn-black-color: #212121;
     }
 
     .event-read-more {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-size: 12px;
       font-weight: 600; // Semibold
       color: #f75097;
@@ -487,7 +487,7 @@ $btn-black-color: #212121;
       }
 
       .event-month {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
@@ -500,7 +500,7 @@ $btn-black-color: #212121;
       }
 
       .event-day {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 24px;
         font-weight: 400;
         line-height: 1;
@@ -516,11 +516,10 @@ $btn-black-color: #212121;
       min-width: 0;
 
       .event-location {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 16px;
         font-weight: 400; // Regular
         color: #012d38;
-        text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 0.5rem;
 
@@ -530,11 +529,10 @@ $btn-black-color: #212121;
       }
 
       .event-title {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 28px;
         font-weight: 800; // Extrabold
         color: #065481;
-        margin-bottom: 1rem;
         line-height: 1.2;
 
         @include breakpoint(medium down) {
@@ -548,7 +546,7 @@ $btn-black-color: #212121;
       }
 
       .event-subtitle {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 18px;
         font-weight: 600; // Regular
         color: #065481;
@@ -560,7 +558,7 @@ $btn-black-color: #212121;
       }
 
       .event-description {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 14px;
         font-weight: 400; // Regular
         line-height: 1.75;
@@ -572,6 +570,8 @@ $btn-black-color: #212121;
         overflow: hidden;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         @include breakpoint(small down) {
           font-size: 13px;
@@ -581,7 +581,7 @@ $btn-black-color: #212121;
       }
 
       .event-read-more {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans';
         font-size: 12px;
         font-weight: 600; // Semibold
         color: #f75097;
@@ -637,7 +637,7 @@ $btn-black-color: #212121;
       justify-content: center;
       min-width: 32px;
       height: 32px;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans';
       font-size: 14px;
       color: #2e5c73;
       background: none;

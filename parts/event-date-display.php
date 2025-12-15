@@ -41,8 +41,5 @@ if ($start_date_field) {
         // Only start date
         echo date('F j, Y', $start_timestamp) . '<br>' . date('G:i', $start_timestamp);
     }
-} else {
-    // Fallback if no date is set
-    echo 'Date to be announced';
-}
+} 
 ?>
